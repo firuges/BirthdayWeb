@@ -1,0 +1,792 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Triple Cumpleaños #40! - Steph, Cate y Pao</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --accent: #ffe66d;
+            --dark: #292f36;
+            --light: #f7f7f7;
+            --neon-pink: #ff00ff;
+            --neon-blue: #00ffff;
+            --neon-green: #00ff00;
+            --neon-yellow: #ffff00;
+            --neon-purple: #9d00ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #121212;
+            color: var(--light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-blue));
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 15px var(--neon-blue), 0 0 25px var(--neon-pink);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--neon-blue), 
+                         0 0 20px var(--neon-blue), 0 0 25px var(--neon-blue), 
+                         0 0 30px var(--neon-blue), 0 0 35px var(--neon-blue);
+            animation: neon-pulse 2s infinite alternate;
+        }
+        
+        @keyframes neon-pulse {
+            0% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--neon-blue), 
+                             0 0 20px var(--neon-blue), 0 0 25px var(--neon-blue), 
+                             0 0 30px var(--neon-blue), 0 0 35px var(--neon-blue); }
+            100% { text-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 7px var(--neon-blue), 
+                               0 0 10px var(--neon-blue), 0 0 17px var(--neon-blue), 
+                               0 0 20px var(--neon-blue), 0 0 25px var(--neon-blue); }
+        }
+        
+        .neon-border {
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 8px var(--neon-pink), inset 0 0 8px var(--neon-pink);
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent);
+            animation: fall 5s linear infinite;
+        }
+        
+        @keyframes fall {
+            0% {
+                top: -10px;
+                transform: translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                transform: translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .age-badge {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.6);
+            color: var(--neon-green);
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            margin: 0.5rem 0;
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-green);
+            animation: pulse-40 2s infinite alternate;
+        }
+        
+        @keyframes pulse-40 {
+            0% { transform: scale(1); box-shadow: 0 0 10px var(--neon-green); }
+            100% { transform: scale(1.05); box-shadow: 0 0 20px var(--neon-green), 0 0 30px var(--neon-green); }
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .countdown {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            border: 1px solid var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+        
+        .countdown-item {
+            margin: 0 1rem;
+        }
+        
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+            color: var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-green);
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: white;
+        }
+        
+        .card {
+            background-color: rgba(25, 25, 30, 0.9);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        
+        .neon-card-1 {
+            border-left: 3px solid var(--neon-pink);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+        }
+        
+        .neon-card-2 {
+            border-left: 3px solid var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+        }
+        
+        .neon-card-3 {
+            border-left: 3px solid var(--neon-purple);
+            box-shadow: 0 0 15px rgba(157, 0, 255, 0.3);
+        }
+        
+        .card h2 {
+            color: white;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--neon-pink);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .birthday-girls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 2rem 0;
+        }
+        
+        .birthday-girl {
+            text-align: center;
+            width: 30%;
+            min-width: 250px;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--neon-pink);
+            margin-bottom: 1rem;
+            background-color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto 1rem;
+            box-shadow: 0 0 15px var(--neon-pink);
+            animation: glow 3s infinite alternate;
+        }
+        
+        .profile-image-1 {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+        
+        .profile-image-2 {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+        
+        .profile-image-3 {
+            border-color: var(--neon-purple);
+            box-shadow: 0 0 15px var(--neon-purple);
+        }
+        
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px currentColor; }
+            100% { box-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: white;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            font-size: 1rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 8px var(--neon-blue);
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px var(--neon-blue), 0 0 25px var(--neon-pink);
+        }
+        
+        .joke {
+            font-style: italic;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            margin: 1rem 0;
+            border-left: 3px solid var(--neon-yellow);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .bank-account {
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 2px dashed var(--neon-green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+        }
+        
+        .bank-account-number {
+            font-family: monospace;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: var(--neon-green);
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            display: inline-block;
+            text-shadow: 0 0 5px var(--neon-green);
+        }
+        
+        .white-dress-note {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-left: 4px solid var(--neon-blue);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+        
+        .neon-theme-reveal {
+            background: linear-gradient(to right, rgba(255, 0, 255, 0.2), rgba(0, 255, 255, 0.2));
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .neon-theme-reveal::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, 
+                rgba(255, 0, 255, 0.1), 
+                rgba(0, 255, 255, 0.1),
+                rgba(157, 0, 255, 0.1),
+                rgba(0, 255, 0, 0.1));
+            animation: gradient-shift 5s infinite alternate;
+            z-index: -1;
+            border-radius: 8px;
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .forty-banner {
+            position: relative;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple));
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            text-align: center;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+        }
+        
+        .forty-banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm20 0a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM10 37a7 7 0 1 0 0-14 7 7 0 0 0 0 14zm10-17h20v20H20V20zm10 17a7 7 0 1 0 0-14 7 7 0 0 0 0 14z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        .forty-banner h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .forty-banner p {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .forty-badge {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            margin: 1rem 0;
+            border: 2px solid white;
+            box-shadow: 0 0 10px var(--neon-pink);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .forty-jokes {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border-left: 3px solid var(--neon-yellow);
+        }
+        
+        .forty-jokes h4 {
+            color: var(--neon-yellow);
+            margin-bottom: 1rem;
+        }
+        
+        .forty-jokes ul {
+            list-style-type: none;
+        }
+        
+        .forty-jokes li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .forty-jokes li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            color: var(--neon-yellow);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .countdown {
+                flex-direction: column;
+            }
+            
+            .countdown-item {
+                margin: 0.5rem 0;
+            }
+            
+            .birthday-girls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .birthday-girl {
+                width: 100%;
+            }
+        }
+        
+        /* Fun elements */
+        .balloon {
+            position: fixed;
+            bottom: -100px;
+            animation: float 15s ease-in-out infinite;
+            z-index: -1;
+            opacity: 0.5;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-800px) rotate(10deg);
+            }
+            100% {
+                transform: translateY(-1600px) rotate(0deg);
+            }
+        }
+        
+        .success-message {
+            display: none;
+            background-color: rgba(0, 255, 0, 0.3);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            border: 1px solid var(--neon-green);
+            box-shadow: 0 0 10px var(--neon-green);
+        }
+        
+        .error-message {
+            display: none;
+            background-color: rgba(255, 0, 0, 0.3);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            border: 1px solid #ff0000;
+            box-shadow: 0 0 10px #ff0000;
+        }
+        
+        .neon-glow {
+            filter: drop-shadow(0 0 5px currentColor);
+        }
+    </style>
+</head>
+<body>
+    <div class="balloon" style="left: 5%; animation-delay: 0s;"><i class="fas fa-birthday-cake" style="font-size: 2rem; color: var(--neon-pink);"></i></div>
+    <div class="balloon" style="left: 20%; animation-delay: 2s;"><i class="fas fa-gift" style="font-size: 2rem; color: var(--neon-blue);"></i></div>
+    <div class="balloon" style="left: 80%; animation-delay: 4s;"><i class="fas fa-glass-cheers" style="font-size: 2rem; color: var(--neon-green);"></i></div>
+    
+    <div class="container">
+        <header>
+            <div class="confetti" style="left: 10%; animation-delay: 0s; background-color: var(--neon-pink);"></div>
+            <div class="confetti" style="left: 20%; animation-delay: 1.5s; background-color: var(--neon-blue);"></div>
+            <div class="confetti" style="left: 30%; animation-delay: 3s; background-color: var(--neon-green);"></div>
+            <div class="confetti" style="left: 40%; animation-delay: 0.5s; background-color: var(--neon-pink);"></div>
+            <div class="confetti" style="left: 50%; animation-delay: 2s; background-color: var(--neon-blue);"></div>
+            <div class="confetti" style="left: 60%; animation-delay: 1s; background-color: var(--neon-green);"></div>
+            <div class="confetti" style="left: 70%; animation-delay: 2.5s; background-color: var(--neon-pink);"></div>
+            <div class="confetti" style="left: 80%; animation-delay: 0.7s; background-color: var(--neon-blue);"></div>
+            <div class="confetti" style="left: 90%; animation-delay: 1.2s; background-color: var(--neon-green);"></div>
+            
+            <h1 class="neon-text">¡Triple Cumpleaños!</h1>
+            <div class="age-badge">40 años</div>
+            <p class="subtitle">Stephanie, Caterine y Paola celebran juntas</p>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">00</span>
+                    <span class="countdown-label">Días</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="forty-banner">
+                <h3 class="neon-text">¡Los 40s son los nuevos 20s!</h3>
+                <div class="forty-badge">4.0</div>
+                <p>No estamos cumpliendo 40 - estamos desbloqueando una nueva versión: <br>
+                <strong>Versión 4.0</strong> — Con más experiencia, menos paciencia para tonterías y capacidad mejorada para detectar BS.</p>
+            </div>
+            
+            <section class="card neon-card-1">
+                <h2>¡Estamos cumpliendo años y queremos celebrarlo contigo!</h2>
+                <div class="joke">
+                    <p>¿Por qué las tres decidimos celebrar nuestro cumpleaños juntas? Porque una sola fiesta = ¡triple diversión y un tercio de los gastos! (La sabiduría financiera llega con la edad 😂)</p>
+                </div>
+                
+                <div class="forty-jokes">
+                    <h4>40 años: lo que nadie te cuenta...</h4>
+                    <ul>
+                        <li>Nuestra idea de una noche loca ahora incluye estar en casa antes de las 10 PM con una buena serie y sin sujetador.</li>
+                        <li>¡Finalmente sabemos lo que queremos en la vida! Desafortunadamente, la mitad requiere un viaje en el tiempo y la otra mitad requiere ganar la lotería.</li>
+                        <li>Ahora nos conocemos tan bien que sabemos exactamente qué tipo de crema anti-arrugas funciona mejor para nosotras.</li>
+                        <li>Cuando tienes 40, "levantamiento de pesas" significa cargar todas las bolsas del supermercado en un solo viaje.</li>
+                    </ul>
+                </div>
+                
+                <div class="birthday-girls">
+                    <div class="birthday-girl">
+                        <div class="profile-image profile-image-1">S</div>
+                        <h3>Stephanie</h3>
+                        <p>La aventurera del grupo que siempre tiene una historia que contar (y ahora también un kit de primeros auxilios en su bolso).</p>
+                    </div>
+                    <div class="birthday-girl">
+                        <div class="profile-image profile-image-2">C</div>
+                        <h3>Caterine</h3>
+                        <p>La organizada que hace que todo funcione perfectamente (y tiene una lista de excusas perfectas para escapar temprano de eventos aburridos).</p>
+                    </div>
+                    <div class="birthday-girl">
+                        <div class="profile-image profile-image-3">P</div>
+                        <h3>Paola</h3>
+                        <p>La creativa que siempre trae ideas innovadoras a la mesa (y ahora también trae sus propios snacks saludables y un cojín para la espalda).</p>
+                    </div>
+                </div>
+                
+                <p>Únete a nuestra celebración el <strong>07 de junio de 2025</strong> a las <strong>20:30 horas</strong> en el <strong>La Glorieta</strong>.</p>
+                
+                <div class="white-dress-note">
+                    <h4><i class="fas fa-tshirt"></i> Código de vestimenta especial</h4>
+                    <p>Para darle un toque especial a la fiesta, nos encantaría que uses <strong>algo blanco</strong> en tu vestimenta. ¡Una prenda, un accesorio sería fantástico si te animas!</p>
+                </div>
+                
+                <div class="neon-theme-reveal">
+                    <h4 style="color: var(--neon-blue);" class="neon-text">¡SORPRESA! Fiesta Temática de Neón</h4>
+                    <p>La razón del código de vestimenta blanco es que tendremos una <strong>fiesta de neón</strong> donde las prendas blancas brillarán con nuestras luces ultravioleta. ¡A los 40 años hemos decidido que es hora de brillar más que nunca! Habrá pinturas fluorescentes, accesorios brillantes y una decoración que te transportará a los clubes de los 90s (pero con sillas cómodas disponibles para todos, porque sabemos lo que importa 😉).</p>
+                </div>
+            </section>
+            
+            <section class="card neon-card-2">
+                <h2>Confirma tu asistencia</h2>
+                <form id="invitation-form">
+                    <div class="form-group">
+                        <label for="name">Nombre completo*</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <!-- Eliminado el campo de correo electrónico, ahora usaremos uno predeterminado -->
+                    
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="attendance">¿Asistirás?*</label>
+                        <select id="attendance" name="attendance" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="yes">¡Claro que sí! No me lo perdería</option>
+                            <option value="maybe">Tal vez, confirmaré más tarde</option>
+                            <option value="no">Lo siento, no podré asistir</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="guests">Número de acompañantes</label>
+                        <input type="number" id="guests" name="guests" min="0" max="2" value="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje para las cumpleañeras</label>
+                        <textarea id="message" name="message" placeholder="¿Algún mensaje especial o algo que debamos saber?"></textarea>
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="forty-question">¿Qué consejo darías a alguien que teme cumplir 40?</label>
+                        <textarea id="forty-question" name="forty-question" placeholder="Comparte tu sabiduría con las que vienen detrás..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Enviar confirmación</button>
+                    
+                    <div class="success-message" id="success-message">
+                        ¡Gracias por confirmar! Hemos recibido tu respuesta y estamos ansiosas por verte brillar en la fiesta.
+                    </div>
+                    
+                    <div class="error-message" id="error-message">
+                        Ha ocurrido un error al enviar el formulario. Por favor, intenta nuevamente.
+                    </div>
+                </form>
+            </section>
+            
+            <section class="card neon-card-3">
+                <h2>¿Quieres contribuir con un regalo?</h2>
+                <p>Tu presencia es el mejor regalo, pero si prefieres hacer una contribución para nuestro fondo de aventuras futuras...</p>
+                
+                <div class="bank-account">
+                    <h4>Fondo Colectivo de Cumpleaños</h4>
+                    <p class="bank-account-number">ES91 1234 5678 9012 3456 7890</p>
+                    <p><small>🔒 Primera regla del código bancario: No preguntes qué haremos con el dinero.</small></p>
+                    <p><small>🏝️ Segunda regla: Probablemente involucre una isla desierta y palmeras.</small></p>
+                </div>
+                
+                <div class="joke">
+                    <p>Promesa: Con tu contribución, te enviaremos una postal desde cualquier playa exótica que visitemos. Si no contribuyes, también te enviaremos una postal... pero con arena y un "¡ojalá estuvieras aquí!" 😉</p>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="footer">
+            <p>Hecho con <i class="fas fa-heart" style="color: var(--neon-pink);"></i> por Stephanie, Caterine y Paola</p>
+            <p>¿Preguntas? Contacta a <a href="mailto:triple.cumple@example.com" style="color: var(--neon-blue); text-decoration: none;">triple.cumple@example.com</a></p>
+        </footer>
+    </div>
+    
+    <script>
+        // Countdown functionality
+        function updateCountdown() {
+            const targetDate = new Date('Jun 07, 2025 20:30:00').getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            
+            // Time calculations
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the result
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+            
+            // If the countdown is over
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("days").innerHTML = "00";
+                document.getElementById("hours").innerHTML = "00";
+                document.getElementById("minutes").innerHTML = "00";
+                document.getElementById("seconds").innerHTML = "00";
+            }
+        }
+        
+        // Update the countdown every second
+        updateCountdown();
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        
+        // Form submission
+        document.getElementById('invitation-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Normally you would use a service like FormSubmit, EmailJS, or your own backend
+            // This is a simplified simulation for demonstration purposes
+            
+            // Get form data
+            const formData = new FormData(this);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+            
+            // Add fixed email for all notifications
+            formObject.email = "triple.cumple@example.com";
+
+            // Simulate form submission (in a real implementation this would send the email)
+            console.log('Form submitted with data:', formObject);
+            
+            // Show success message
+            document.getElementById('success-message').style.display = 'block';
+            
+            // Reset form after successful submission
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('success-message').style.display = 'none';
+            }, 5000);
+            
+            // Create a fun animation for successful submission
+            createConfettiEffect();
+        });
+        
+        // Create confetti effect on submission
+        function createConfettiEffect() {
+            const container = document.querySelector('.container');
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                
+                // Neon colors for confetti
+                const neonColors = ['#ff00ff', '#00ffff', '#00ff00', '#ffff00', '#9d00ff'];
+                const randomColor = neonColors[Math.floor(Math.random() * neonColors.length)];
+                confetti.style.backgroundColor = randomColor;
+                
+                container.appendChild(confetti);
+                
+                // Remove confetti after animation
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+</html>

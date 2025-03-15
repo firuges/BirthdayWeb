@@ -760,11 +760,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="attendance">¿Asistirás?*</label>
+                        <label for="attendance">¿Asistirás? Tiempo limite para confirmar 31 de Mayo*</label>
                         <select id="attendance" name="attendance" required>
                             <option value="">Selecciona una opción</option>
                             <option value="yes">¡Claro que sí! No me lo perdería</option>
-                            <option value="maybe">Tal vez, confirmaré más tarde</option>
                             <option value="no">Lo siento, no podré asistir</option>
                         </select>
                     </div>
@@ -919,13 +918,13 @@
             // Función para actualizar la información de cuenta basada en la selección
             function updateAccountInfo() {
                 if (stephRadio && stephRadio.checked) {
-                    if (accountNumber) accountNumber.textContent = "HSBC - 8315528";
+                    if (accountNumber) accountNumber.textContent = "HSBC Pesos - 8315528";
                     if (accountOwner) accountOwner.textContent = "Stephanie";
                 } else if (cateRadio && cateRadio.checked) {
-                    if (accountNumber) accountNumber.textContent = "BROU - 001350212-00002";
+                    if (accountNumber) accountNumber.textContent = "BROU Pesos - 001350212-00002";
                     if (accountOwner) accountOwner.textContent = "Caterine";
                 } else if (paolaRadio && paolaRadio.checked) {
-                    if (accountNumber) accountNumber.textContent = "OCA Blue - 4110785";
+                    if (accountNumber) accountNumber.textContent = "OCA Blue Pesos - 4110785";
                     if (accountOwner) accountOwner.textContent = "Paola";
                 }
             }
@@ -991,13 +990,13 @@
             let accountNumber = "";
             switch (selectedGirl) {
                 case "Stephanie":
-                    accountNumber = "HSBC - 8315528";
+                    accountNumber = "HSBC Pesos - 8315528";
                     break;
                 case "Caterine":
-                    accountNumber = "BROU - 001350212-00002";
+                    accountNumber = "BROU Pesos - 001350212-00002";
                     break;
                 case "Paola":
-                    accountNumber = "OCA Blue - 4110785";
+                    accountNumber = "OCA Blue Pesos - 4110785";
                     break;
                 default:
                     accountNumber = "Selecciona cumpleañera!"; // Cuenta por defecto

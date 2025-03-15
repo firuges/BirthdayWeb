@@ -751,7 +751,7 @@
                                 </label>
                             </div>
                             <div class="neon-option">
-                                <input type="radio" id="girl-all" name="favorite-girl" value="Todas">
+                                <input type="radio" id="girl-all" name="favorite-girl" value="Todas" checked>
                                 <label for="girl-all" class="option-label" style="border-color: var(--neon-green); box-shadow: 0 0 10px var(--neon-green);">
                                     <div class="mini-profile" style="background-color: var(--neon-green);">
                                         <i class="fas fa-users" style="font-size: 1.2rem;"></i>
@@ -947,22 +947,13 @@
                     // Ocultar indicador de carga
                     document.getElementById('loading-indicator').style.display = 'none';
                     
-                    // Mostrar mensaje de éxito
+                    // Mostrar mensaje de éxito brevemente
                     document.getElementById('success-message').style.display = 'block';
                     
-                    // Limpiar formulario
-                    document.getElementById('invitation-form').reset();
-                    
-                    // Re-habilitar el botón
-                    submitButton.disabled = false;
-                    
-                    // Ocultar mensaje después de 5 segundos
+                    // Redirigir a la página de agradecimiento después de un breve retraso
                     setTimeout(() => {
-                        document.getElementById('success-message').style.display = 'none';
-                    }, 5000);
-                    
-                    // Efecto de confeti al enviar exitosamente
-                    createConfettiEffect();
+                        window.location.href = 'gracias.html';
+                    }, 1000); // Redirige después de 1 segundo
                 })
                 .catch(function(error) {
                     console.log('FAILED...', error);

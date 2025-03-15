@@ -6,41 +6,152 @@
     <title>¡Gracias por confirmar! - Triple Cumpleaños</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Puedes copiar los estilos base del archivo principal */
+        :root {
+            --neon-pink: #ff00ff;
+            --neon-blue: #00ffff;
+            --neon-green: #00ff00;
+            --neon-yellow: #ffff00;
+            --neon-purple: #9d00ff;
+        }
+        
         body {
             background-color: #121212;
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
-            padding-top: 50px;
+            padding: 50px 20px;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
+        
         .thank-you-card {
             max-width: 600px;
-            margin: 0 auto;
-            padding: 2rem;
+            width: 100%;
+            padding: 2.5rem;
             background-color: rgba(25, 25, 30, 0.9);
             border-radius: 8px;
-            border-left: 3px solid #ff00ff;
-            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+            border-left: 3px solid var(--neon-pink);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+            position: relative;
+            overflow: hidden;
         }
+        
+        h1 {
+            color: var(--neon-blue);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 5px var(--neon-blue);
+            animation: neon-pulse 2s infinite alternate;
+        }
+        
+        @keyframes neon-pulse {
+            0% { text-shadow: 0 0 5px #fff, 0 0 10px var(--neon-blue); }
+            100% { text-shadow: 0 0 2px #fff, 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue); }
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
         .btn {
             display: inline-block;
-            margin-top: 20px;
-            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            margin-top: 25px;
+            background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 4px;
             font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px var(--neon-blue), 0 0 25px var(--neon-pink);
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            animation: fall 5s linear infinite;
+        }
+        
+        @keyframes fall {
+            0% {
+                top: -10px;
+                transform: translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                transform: translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .icon-container {
+            font-size: 3rem;
+            color: var(--neon-green);
+            margin: 1rem 0;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
     </style>
 </head>
 <body>
+    <!-- Confeti animado -->
+    <div class="confetti" style="left: 10%; animation-delay: 0s; background-color: var(--neon-pink);"></div>
+    <div class="confetti" style="left: 20%; animation-delay: 1.5s; background-color: var(--neon-blue);"></div>
+    <div class="confetti" style="left: 30%; animation-delay: 3s; background-color: var(--neon-green);"></div>
+    <div class="confetti" style="left: 40%; animation-delay: 0.5s; background-color: var(--neon-pink);"></div>
+    <div class="confetti" style="left: 60%; animation-delay: 1s; background-color: var(--neon-green);"></div>
+    <div class="confetti" style="left: 70%; animation-delay: 2.5s; background-color: var(--neon-pink);"></div>
+    <div class="confetti" style="left: 80%; animation-delay: 0.7s; background-color: var(--neon-blue);"></div>
+    <div class="confetti" style="left: 90%; animation-delay: 1.2s; background-color: var(--neon-green);"></div>
+    
     <div class="thank-you-card">
+        <div class="icon-container">
+            <i class="fas fa-check-circle"></i>
+        </div>
         <h1>¡Gracias por confirmar tu asistencia!</h1>
         <p>Hemos recibido tu respuesta y estamos ansiosas por verte brillar en la fiesta.</p>
+        <p>Recuerda traer algo blanco para que brille con nuestras luces ultravioleta. ¡A los 40 vamos a celebrar con todo!</p>
         <p>Si tienes alguna duda, ponte en contacto con nosotras.</p>
         <a href="index.html" class="btn">Volver a la invitación</a>
     </div>
+    
+    <script>
+        // Crear más confeti al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            const body = document.body;
+            const neonColors = ['#ff00ff', '#00ffff', '#00ff00', '#ffff00', '#9d00ff'];
+            
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                
+                const randomColor = neonColors[Math.floor(Math.random() * neonColors.length)];
+                confetti.style.backgroundColor = randomColor;
+                
+                body.appendChild(confetti);
+            }
+        });
+    </script>
 </body>
 </html>

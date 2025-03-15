@@ -652,8 +652,8 @@
             <div class="confetti" style="left: 70%; animation-delay: 2.5s; background-color: var(--neon-pink);"></div>
             <div class="confetti" style="left: 80%; animation-delay: 0.7s; background-color: var(--neon-blue);"></div>
             <div class="confetti" style="left: 90%; animation-delay: 1.2s; background-color: var(--neon-green);"></div>
-
-            <h1 class="neon-text">¡Triple Cumpleaños!</h1>
+            <h1 class="neon-text">¡Gira el Celular que hay!</h1>
+            <h1 class="neon-text">¡Triple Cumpleaño!</h1>
             <div class="age-badge">40 años</div>
             <p class="subtitle">Stephanie, Caterine y Paola celebran juntas</p>
             <div class="countdown">
@@ -782,7 +782,6 @@
                                     style="border-color: var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink);">
                                     <div class="mini-profile" style="background-color: var(--neon-pink);">S</div>
                                     <span>Stephanie</span>
-                                    <small>La aventurera</small>
                                 </label>
                             </div>
                             <div class="neon-option">
@@ -791,7 +790,6 @@
                                     style="border-color: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue);">
                                     <div class="mini-profile" style="background-color: var(--neon-blue);">C</div>
                                     <span>Caterine</span>
-                                    <small>La organizada</small>
                                 </label>
                             </div>
                             <div class="neon-option">
@@ -800,16 +798,9 @@
                                     style="border-color: var(--neon-purple); box-shadow: 0 0 10px var(--neon-purple);">
                                     <div class="mini-profile" style="background-color: var(--neon-purple);">P</div>
                                     <span>Paola</span>
-                                    <small>La creativa</small>
                                 </label>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Mensaje para las cumpleañeras</label>
-                        <textarea id="message" name="message"
-                            placeholder="¿Algún mensaje especial o algo que debamos saber?"></textarea>
                     </div>
 
 
@@ -1010,7 +1001,6 @@
                 attendance: attendanceText,
                 attendance_class: attendanceClass,
                 guests: formObject.guests || '0',
-                message: formObject.message || 'Sin mensaje',
                 forty_advice: formObject["forty-question"] || 'Sin consejo',
                 favorite_girl: selectedGirl,
                 account_number: accountNumber,
@@ -1035,7 +1025,6 @@
                             attendance: formObject.attendance === 'yes' ? 'Confirmada' :
                                 (formObject.attendance === 'maybe' ? 'Posible asistencia' : 'No podrá asistir'),
                             guests: formObject.guests || '0',
-                            message: formObject.message || 'Sin mensaje',
                             forty_advice: formObject["forty-question"] || 'Sin consejo',
                             host_name: 'Stephanie, Caterine y Paola',
                             reply_email: 'maximilianocesan@gmail.com', // Email para que el usuario responda

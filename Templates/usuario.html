@@ -15,7 +15,7 @@
             margin: 0;
         }
         .container {
-            background-color: #1e1633;
+            background-color: #1e1633; /* Fondo oscuro para mejor contraste */
             padding: 30px 20px;
             border-radius: 10px;
             max-width: 600px;
@@ -46,7 +46,7 @@
             font-size: 16px;
             margin: 20px 0;
             text-align: left;
-            background-color: #292042;
+            background-color: #171027; /* Fondo más oscuro para mejor contraste */
             padding: 20px;
             border-radius: 8px;
         }
@@ -54,13 +54,18 @@
             margin: 12px 0;
         }
         .detail-label {
-            color: #ff00ff;
+            color: #ff00ff; /* Color magenta para las etiquetas */
             font-weight: bold;
             display: inline-block;
             min-width: 120px;
         }
+        .detail-value {
+            color: #ffffff; /* Color blanco bien visible para los valores */
+            font-weight: normal;
+            display: inline-block;
+        }
         .message-box {
-            background-color: #251b38;
+            background-color: #171027; /* Fondo oscuro para mejor contraste */
             padding: 15px;
             border-radius: 5px;
             margin: 15px 0;
@@ -71,6 +76,9 @@
             color: #ffff00;
             margin-bottom: 10px;
             font-weight: bold;
+        }
+        .message-content {
+            color: #ffffff; /* Asegurarse que el texto es blanco */
         }
         .footer {
             margin-top: 30px;
@@ -112,36 +120,48 @@
         
         <div class="details">
             <p class="detail-item">
-                <span class="detail-label">Hola:</span> {{name}}
+                <span class="detail-label">Hola:</span> 
+                <span class="detail-value">{{name}}</span>
             </p>
             <p class="detail-item">
-                <span class="detail-label">Celebración de:</span> {{birthday_person}}
+                <span class="detail-label">Celebración de:</span> 
+                <span class="detail-value">{{birthday_person}}</span>
             </p>
             <p class="detail-item">
-                <span class="detail-label">📅 Fecha:</span> {{event_date}}
+                <span class="detail-label">📅 Fecha:</span> 
+                <span class="detail-value">{{event_date}}</span>
             </p>
             <p class="detail-item">
-                <span class="detail-label">📍 Ubicación:</span> {{event_location}}
+                <span class="detail-label">📍 Ubicación:</span> 
+                <span class="detail-value">{{event_location}}</span>
             </p>
             <p class="detail-item">
-                <span class="detail-label">📞 Teléfono:</span> {{phone}}
+                <span class="detail-label">📞 Teléfono:</span> 
+                <span class="detail-value">{{phone}}</span>
             </p>
             <p class="detail-item">
-                <span class="detail-label">✅ Asistencia:</span> {{attendance}}
+                <span class="detail-label">✅ Asistencia:</span> 
+                <span class="detail-value">{{attendance}}</span>
             </p>
             <p class="detail-item">
-                <span class="detail-label">👥 Acompañantes:</span> {{guests}}
+                <span class="detail-label">👥 Acompañantes:</span> 
+                <span class="detail-value">{{guests}}</span>
+            </p>
+            <!-- Añadimos por quién asiste, si se incluyó esta información -->
+            <p class="detail-item">
+                <span class="detail-label">💕 Vienes por:</span> 
+                <span class="detail-value">{{favorite_girl}}</span>
             </p>
         </div>
         
         <div class="message-box">
             <p class="message-box-title">✨ Tu mensaje:</p>
-            <p>"{{message}}"</p>
+            <p class="message-content">"{{message}}"</p>
         </div>
         
         <div class="message-box">
             <p class="message-box-title">🏆 Consejo sobre los 40:</p>
-            <p>"{{forty_advice}}"</p>
+            <p class="message-content">"{{forty_advice}}"</p>
         </div>
         
         <div class="neon-theme">

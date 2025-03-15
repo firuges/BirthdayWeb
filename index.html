@@ -724,10 +724,10 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="favorite-girl">Confiesa... ¿Por quién de las tres vienes realmente? 👀</label>
+                        <label for="favorite-girl">Confiesa... ¿Por quién de las tres vienes realmente? 👀 *</label>
                         <div class="neon-selector">
                             <div class="neon-option">
-                                <input type="radio" id="girl-stephanie" name="favorite-girl" value="Stephanie">
+                                <input type="radio" id="girl-stephanie" name="favorite-girl" value="Stephanie" required>
                                 <label for="girl-stephanie" class="option-label" style="border-color: var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink);">
                                     <div class="mini-profile" style="background-color: var(--neon-pink);">S</div>
                                     <span>Stephanie</span>
@@ -735,7 +735,7 @@
                                 </label>
                             </div>
                             <div class="neon-option">
-                                <input type="radio" id="girl-caterine" name="favorite-girl" value="Caterine">
+                                <input type="radio" id="girl-caterine" name="favorite-girl" value="Caterine" required>
                                 <label for="girl-caterine" class="option-label" style="border-color: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue);">
                                     <div class="mini-profile" style="background-color: var(--neon-blue);">C</div>
                                     <span>Caterine</span>
@@ -743,21 +743,11 @@
                                 </label>
                             </div>
                             <div class="neon-option">
-                                <input type="radio" id="girl-paola" name="favorite-girl" value="Paola">
+                                <input type="radio" id="girl-paola" name="favorite-girl" value="Paola" required>
                                 <label for="girl-paola" class="option-label" style="border-color: var(--neon-purple); box-shadow: 0 0 10px var(--neon-purple);">
                                     <div class="mini-profile" style="background-color: var(--neon-purple);">P</div>
                                     <span>Paola</span>
                                     <small>La creativa</small>
-                                </label>
-                            </div>
-                            <div class="neon-option">
-                                <input type="radio" id="girl-all" name="favorite-girl" value="Todas" checked>
-                                <label for="girl-all" class="option-label" style="border-color: var(--neon-green); box-shadow: 0 0 10px var(--neon-green);">
-                                    <div class="mini-profile" style="background-color: var(--neon-green);">
-                                        <i class="fas fa-users" style="font-size: 1.2rem;"></i>
-                                    </div>
-                                    <span>Todas</span>
-                                    <small>No tengo favoritas 😇</small>
                                 </label>
                             </div>
                         </div>
@@ -801,9 +791,10 @@
                 
                 <div class="bank-account">
                     <h4>Fondo Colectivo de Cumpleaños</h4>
-                    <p class="bank-account-number">ES91 1234 5678 9012 3456 7890</p>
+                    <p class="bank-account-number" id="account-number">ES91 2468 1357 9012 3456 7890</p>
                     <p><small>🔒 Primera regla del código bancario: No preguntes qué haremos con el dinero.</small></p>
                     <p><small>🏝️ Segunda regla: Probablemente involucre una isla desierta y palmeras.</small></p>
+                    <p><small>💸 Esta cuenta pertenece a <span id="account-owner">Stephanie</span>, pero no te preocupes, somos buenas compartiendo... la mayor parte del tiempo.</small></p>
                 </div>
                 
                 <div class="joke">
@@ -850,7 +841,42 @@
         // Update the countdown every second
         updateCountdown();
         const countdownTimer = setInterval(updateCountdown, 1000);
-        
+        // Añadir este código antes de la función de envío del formulario
+        document.addEventListener('DOMContentLoaded', function() {
+            // Referencias a los elementos
+            const stephRadio = document.getElementById('girl-stephanie');
+            const cateRadio = document.getElementById('girl-caterine');
+            const paolaRadio = document.getElementById('girl-paola');
+            const accountNumber = document.getElementById('account-number');
+            const accountOwner = document.getElementById('account-owner');
+            
+            // Función para actualizar el número de cuenta según la selección
+            function updateAccountInfo() {
+                if (stephRadio.checked) {
+                    accountNumber.textContent = "ES91 2468 1357 9012 3456 7890";
+                    accountOwner.textContent = "Stephanie";
+                } else if (cateRadio.checked) {
+                    accountNumber.textContent = "ES91 1357 2468 5791 3456 7890";
+                    accountOwner.textContent = "Caterine";
+                } else if (paolaRadio.checked) {
+                    accountNumber.textContent = "ES91 9753 1246 8024 3456 7890";
+                    accountOwner.textContent = "Paola";
+                }
+            }
+            
+            // Asignar eventos a los radio buttons
+            stephRadio.addEventListener('change', updateAccountInfo);
+            cateRadio.addEventListener('change', updateAccountInfo);
+            paolaRadio.addEventListener('change', updateAccountInfo);
+            
+            // Inicializar con el primer radio button si ninguno está seleccionado
+            if (!stephRadio.checked && !cateRadio.checked && !paolaRadio.checked) {
+                stephRadio.checked = true;
+            }
+            
+            // Actualizar el número al cargar la página
+            updateAccountInfo();
+        });
         // Form submission
         // Form submission with EmailJS
         // Form submission with EmailJS
@@ -893,7 +919,7 @@
                 attendanceClass = 'attendance-no';
                 attendanceText = 'No podrá asistir';
             }
-            
+            const selectedGirl = formObject["favorite-girl"];
             // Preparar los parámetros para la plantilla del administrador
             const adminTemplateParams = {
                 name: formObject.name || 'No especificado',
@@ -904,7 +930,7 @@
                 guests: formObject.guests || '0',
                 message: formObject.message || 'Sin mensaje',
                 forty_advice: formObject["forty-question"] || 'Sin consejo',
-                favorite_girl: formObject["favorite-girl"] || 'No indicó',
+                favorite_girl: selectedGirl,
                 date_time: formattedDate
             };
             

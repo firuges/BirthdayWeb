@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Confirmación - Triple Cumpleaños</title>
+    <style>
+        /* Estilos base */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0;
+            background-color: #1e1237;
+            border-radius: 8px;
+            border-left: 4px solid #ff00ff;
+            overflow: hidden;
+        }
+        
+        .content {
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #00ffff;
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #00ffff;
+            padding-bottom: 10px;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+        
+        .section {
+            background-color: rgba(0, 0, 0, 0.25);
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        
+        .label {
+            color: #ff00ff;
+            font-weight: bold;
+            display: inline-block;
+            width: 140px;
+            margin-bottom: 8px;
+        }
+        
+        .value {
+            color: #ffffff;
+            display: inline-block;
+        }
+        
+        .message-box {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            border-left: 3px solid #ffff00;
+            color: #ffffff;
+        }
+        
+        .message-title {
+            color: #ffff00;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #888888;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .attendance-yes {
+            color: #00ff00;
+            font-weight: bold;
+        }
+        
+        .attendance-maybe {
+            color: #ffff00;
+            font-weight: bold;
+        }
+        
+        .attendance-no {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        
+        a {
+            color: #00ffff;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .header-img {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>📣 Nueva confirmación para el Triple Cumpleaños</h1>
+            
+            <div class="section">
+                <p><span class="label">Nombre:</span> <span class="value">{{name}}</span></p>
+                <p><span class="label">Teléfono:</span> <span class="value">{{phone}}</span></p>
+                <p><span class="label">Email:</span> <span class="value"><a href="mailto:{{email}}">{{email}}</a></span></p>
+                <p><span class="label">Asistencia:</span> 
+                    <span class="value {{attendance_class}}">{{attendance}}</span>
+                </p>
+                <p><span class="label">Acompañantes:</span> <span class="value">{{guests}}</span></p>
+                <p><span class="label">Viene por:</span> <span class="value" style="color: #ff9500; font-weight: bold;">{{favorite_girl}}</span></p>
+            </div>
+            
+            <div class="message-title">Mensaje:</div>
+            <div class="message-box">
+                {{message}}
+            </div>
+            
+            <div class="message-title">Consejo sobre los 40:</div>
+            <div class="message-box">
+                {{forty_advice}}
+            </div>
+            
+            <div class="footer">
+                Recibido el {{date_time}}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

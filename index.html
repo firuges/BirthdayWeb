@@ -523,7 +523,80 @@
         .neon-glow {
             filter: drop-shadow(0 0 5px currentColor);
         }
+        .neon-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .neon-option {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .neon-option input[type="radio"] {
+            display: none;
+        }
+
+        .option-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 10px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .option-label:hover {
+            transform: translateY(-5px);
+        }
+
+        .neon-option input[type="radio"]:checked + .option-label {
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .mini-profile {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .option-label span {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .option-label small {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+@media (max-width: 768px) {
+    .neon-selector {
+        flex-direction: column;
+    }
+}
     </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function() {
+        // Reemplaza "tu_user_id" con tu ID de usuario de EmailJS
+        emailjs.init("vab4HD8Jp-sZVyOCF");
+      })();
+    </script>
 </head>
 <body>
     <div class="balloon" style="left: 5%; animation-delay: 0s;"><i class="fas fa-birthday-cake" style="font-size: 2rem; color: var(--neon-pink);"></i></div>
@@ -651,6 +724,46 @@
                     </div>
                     
                     <div class="form-group">
+                        <label for="favorite-girl">Confiesa... ¿Por quién de las tres vienes realmente? 👀</label>
+                        <div class="neon-selector">
+                            <div class="neon-option">
+                                <input type="radio" id="girl-stephanie" name="favorite-girl" value="Stephanie">
+                                <label for="girl-stephanie" class="option-label" style="border-color: var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink);">
+                                    <div class="mini-profile" style="background-color: var(--neon-pink);">S</div>
+                                    <span>Stephanie</span>
+                                    <small>La aventurera</small>
+                                </label>
+                            </div>
+                            <div class="neon-option">
+                                <input type="radio" id="girl-caterine" name="favorite-girl" value="Caterine">
+                                <label for="girl-caterine" class="option-label" style="border-color: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue);">
+                                    <div class="mini-profile" style="background-color: var(--neon-blue);">C</div>
+                                    <span>Caterine</span>
+                                    <small>La organizada</small>
+                                </label>
+                            </div>
+                            <div class="neon-option">
+                                <input type="radio" id="girl-paola" name="favorite-girl" value="Paola">
+                                <label for="girl-paola" class="option-label" style="border-color: var(--neon-purple); box-shadow: 0 0 10px var(--neon-purple);">
+                                    <div class="mini-profile" style="background-color: var(--neon-purple);">P</div>
+                                    <span>Paola</span>
+                                    <small>La creativa</small>
+                                </label>
+                            </div>
+                            <div class="neon-option">
+                                <input type="radio" id="girl-all" name="favorite-girl" value="Todas">
+                                <label for="girl-all" class="option-label" style="border-color: var(--neon-green); box-shadow: 0 0 10px var(--neon-green);">
+                                    <div class="mini-profile" style="background-color: var(--neon-green);">
+                                        <i class="fas fa-users" style="font-size: 1.2rem;"></i>
+                                    </div>
+                                    <span>Todas</span>
+                                    <small>No tengo favoritas 😇</small>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="message">Mensaje para las cumpleañeras</label>
                         <textarea id="message" name="message" placeholder="¿Algún mensaje especial o algo que debamos saber?"></textarea>
                     </div>
@@ -660,9 +773,18 @@
                         <label for="forty-question">¿Qué consejo darías a alguien que teme cumplir 40?</label>
                         <textarea id="forty-question" name="forty-question" placeholder="Comparte tu sabiduría con las que vienen detrás..."></textarea>
                     </div>
-                    
+
+                    <div class="form-group">
+                        <label for="email">Correo electrónico <small>(opcional - agrégalo si deseas recibir la invitación por email)</small></label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com">
+                    </div>
+
                     <button type="submit" class="btn">Enviar confirmación</button>
-                    
+                    <div class="loading-indicator" id="loading-indicator" style="display: none; text-align: center; margin-top: 1rem;">
+                        <i class="fas fa-spinner fa-spin" style="font-size: 1.5rem; color: var(--neon-blue);"></i>
+                        <span style="margin-left: 0.5rem;">Enviando...</span>
+                    </div>
+
                     <div class="success-message" id="success-message">
                         ¡Gracias por confirmar! Hemos recibido tu respuesta y estamos ansiosas por verte brillar en la fiesta.
                     </div>
@@ -730,40 +852,138 @@
         const countdownTimer = setInterval(updateCountdown, 1000);
         
         // Form submission
+        // Form submission with EmailJS
+        // Form submission with EmailJS
         document.getElementById('invitation-form').addEventListener('submit', function(e) {
             e.preventDefault();
+            document.getElementById('loading-indicator').style.display = 'block';
+
+            // Deshabilitar el botón durante el envío
+            const submitButton = document.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
             
-            // Normally you would use a service like FormSubmit, EmailJS, or your own backend
-            // This is a simplified simulation for demonstration purposes
-            
-            // Get form data
+            // Obtener datos del formulario
             const formData = new FormData(this);
             const formObject = {};
             formData.forEach((value, key) => {
                 formObject[key] = value;
             });
             
-            // Add fixed email for all notifications
-            formObject.email = "triple.cumple@example.com";
-
-            // Simulate form submission (in a real implementation this would send the email)
-            console.log('Form submitted with data:', formObject);
+            // Formatear la fecha actual
+            const now = new Date();
+            const formattedDate = now.toLocaleDateString('es-ES', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
             
-            // Show success message
-            document.getElementById('success-message').style.display = 'block';
+            // Determinar la clase CSS para el estado de asistencia
+            let attendanceClass = '';
+            let attendanceText = '';
             
-            // Reset form after successful submission
-            this.reset();
+            if (formObject.attendance === 'yes') {
+                attendanceClass = 'attendance-yes';
+                attendanceText = '¡Asistirá!';
+            } else if (formObject.attendance === 'maybe') {
+                attendanceClass = 'attendance-maybe';
+                attendanceText = 'Tal vez asista';
+            } else if (formObject.attendance === 'no') {
+                attendanceClass = 'attendance-no';
+                attendanceText = 'No podrá asistir';
+            }
             
-            // Hide success message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('success-message').style.display = 'none';
-            }, 5000);
+            // Preparar los parámetros para la plantilla del administrador
+            const adminTemplateParams = {
+                name: formObject.name || 'No especificado',
+                phone: formObject.phone || 'No especificado',
+                email: formObject.email || 'No proporcionado',
+                attendance: attendanceText,
+                attendance_class: attendanceClass,
+                guests: formObject.guests || '0',
+                message: formObject.message || 'Sin mensaje',
+                forty_advice: formObject["forty-question"] || 'Sin consejo',
+                favorite_girl: formObject["favorite-girl"] || 'No indicó',
+                date_time: formattedDate
+            };
             
-            // Create a fun animation for successful submission
-            createConfettiEffect();
+            // Enviar email al administrador
+            emailjs.send('service_cumple', 'template_cumple40', adminTemplateParams)
+                .then(function(response) {
+                    console.log('Admin notification sent!', response.status);
+                    
+                    // Si el usuario proporcionó un email, enviar confirmación al usuario
+                    if (formObject.email && formObject.email.trim() !== '') {
+                        // Preparar los parámetros para la plantilla del usuario
+                        const userTemplateParams = {
+                            name: formObject.name || 'Invitado',
+                            birthday_person: 'Stephanie, Caterine y Paola',
+                            event_date: '07 de junio de 2025, 20:30 horas',
+                            event_location: 'La Glorieta',
+                            phone: formObject.phone || 'No especificado',
+                            email: formObject.email || 'No proporcionado', // Añadido el campo email
+                            attendance: formObject.attendance === 'yes' ? 'Confirmada' : 
+                                    (formObject.attendance === 'maybe' ? 'Posible asistencia' : 'No podrá asistir'),
+                            guests: formObject.guests || '0',
+                            message: formObject.message || 'Sin mensaje',
+                            forty_advice: formObject["forty-question"] || 'Sin consejo',
+                            host_name: 'Stephanie, Caterine y Paola',
+                            reply_email: 'triple.cumple@example.com', // Email para que el usuario responda
+                            to_email: formObject.email // Email del usuario
+                        };
+                        
+                        // Enviar email al usuario - necesitas crear una segunda plantilla para esto
+                        return emailjs.send('service_cumple', 'template_usuario_cumple', userTemplateParams);
+                    }
+                    
+                    return Promise.resolve(); // Si no hay email, simplemente continuar
+                })
+                .then(function(userResponse) {
+                    if (userResponse) {
+                        console.log('User confirmation sent!', userResponse.status);
+                    }
+                    
+                    // Ocultar indicador de carga
+                    document.getElementById('loading-indicator').style.display = 'none';
+                    
+                    // Mostrar mensaje de éxito
+                    document.getElementById('success-message').style.display = 'block';
+                    
+                    // Limpiar formulario
+                    document.getElementById('invitation-form').reset();
+                    
+                    // Re-habilitar el botón
+                    submitButton.disabled = false;
+                    
+                    // Ocultar mensaje después de 5 segundos
+                    setTimeout(() => {
+                        document.getElementById('success-message').style.display = 'none';
+                    }, 5000);
+                    
+                    // Efecto de confeti al enviar exitosamente
+                    createConfettiEffect();
+                })
+                .catch(function(error) {
+                    console.log('FAILED...', error);
+                    
+                    // Ocultar indicador de carga
+                    document.getElementById('loading-indicator').style.display = 'none';
+                    
+                    // Mostrar mensaje de error con detalles
+                    document.getElementById('error-message').textContent = 
+                        'Error al enviar el formulario: ' + (error.text || 'Verifica tus datos');
+                    document.getElementById('error-message').style.display = 'block';
+                    
+                    // Re-habilitar el botón
+                    submitButton.disabled = false;
+                    
+                    // Ocultar mensaje de error después de 5 segundos
+                    setTimeout(() => {
+                        document.getElementById('error-message').style.display = 'none';
+                    }, 5000);
+                });
         });
-        
         // Create confetti effect on submission
         function createConfettiEffect() {
             const container = document.querySelector('.container');

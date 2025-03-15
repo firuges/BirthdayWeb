@@ -95,6 +95,26 @@
             color: #00ffff;
             text-shadow: 0 0 5px #00ffff;
         }
+        .bank-account {
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 2px dashed #00ff00;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        .bank-account-number {
+            font-family: monospace;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: #00ff00;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            display: inline-block;
+            text-shadow: 0 0 5px #00ff00;
+        }
         /* Mejora de legibilidad en móviles */
         @media only screen and (max-width: 600px) {
             body {
@@ -147,7 +167,6 @@
                 <span class="detail-label">👥 Acompañantes:</span> 
                 <span class="detail-value">{{guests}}</span>
             </p>
-            <!-- Añadimos por quién asiste, si se incluyó esta información -->
             <p class="detail-item">
                 <span class="detail-label">💕 Vienes por:</span> 
                 <span class="detail-value">{{favorite_girl}}</span>
@@ -162,6 +181,12 @@
         <div class="message-box">
             <p class="message-box-title">🏆 Consejo sobre los 40:</p>
             <p class="message-content">"{{forty_advice}}"</p>
+        </div>
+        
+        <div class="bank-account">
+            <h4>Cuenta Bancaria {{favorite_girl}}</h4>
+            <p class="bank-account-number">{{account_number}}</p>
+            <p style="color: #ffffff;"><small>💸 Esta cuenta pertenece a {{favorite_girl}}, pero no te preocupes, las tres compartimos los fondos... o al menos eso es lo que le decimos a ella. 😉</small></p>
         </div>
         
         <div class="neon-theme">

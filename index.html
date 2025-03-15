@@ -1,4 +1,5 @@
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,26 +18,26 @@
             --neon-yellow: #ffff00;
             --neon-purple: #9d00ff;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
             background-color: #121212;
             color: var(--light);
             line-height: 1.6;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
-        
+
         header {
             background: linear-gradient(135deg, var(--neon-pink), var(--neon-blue));
             color: white;
@@ -48,28 +49,33 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .neon-text {
-            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--neon-blue), 
-                         0 0 20px var(--neon-blue), 0 0 25px var(--neon-blue), 
-                         0 0 30px var(--neon-blue), 0 0 35px var(--neon-blue);
+            text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--neon-blue),
+                0 0 20px var(--neon-blue), 0 0 25px var(--neon-blue),
+                0 0 30px var(--neon-blue), 0 0 35px var(--neon-blue);
             animation: neon-pulse 2s infinite alternate;
         }
-        
+
         @keyframes neon-pulse {
-            0% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--neon-blue), 
-                             0 0 20px var(--neon-blue), 0 0 25px var(--neon-blue), 
-                             0 0 30px var(--neon-blue), 0 0 35px var(--neon-blue); }
-            100% { text-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 7px var(--neon-blue), 
-                               0 0 10px var(--neon-blue), 0 0 17px var(--neon-blue), 
-                               0 0 20px var(--neon-blue), 0 0 25px var(--neon-blue); }
+            0% {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--neon-blue),
+                    0 0 20px var(--neon-blue), 0 0 25px var(--neon-blue),
+                    0 0 30px var(--neon-blue), 0 0 35px var(--neon-blue);
+            }
+
+            100% {
+                text-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 7px var(--neon-blue),
+                    0 0 10px var(--neon-blue), 0 0 17px var(--neon-blue),
+                    0 0 20px var(--neon-blue), 0 0 25px var(--neon-blue);
+            }
         }
-        
+
         .neon-border {
             border: 2px solid var(--neon-pink);
             box-shadow: 0 0 8px var(--neon-pink), inset 0 0 8px var(--neon-pink);
         }
-        
+
         .confetti {
             position: absolute;
             width: 10px;
@@ -77,27 +83,28 @@
             background-color: var(--accent);
             animation: fall 5s linear infinite;
         }
-        
+
         @keyframes fall {
             0% {
                 top: -10px;
                 transform: translateX(0) rotate(0deg);
                 opacity: 1;
             }
+
             100% {
                 top: 100%;
                 transform: translateX(100px) rotate(360deg);
                 opacity: 0;
             }
         }
-        
+
         h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
-        
+
         .age-badge {
             display: inline-block;
             background: rgba(0, 0, 0, 0.6);
@@ -112,17 +119,24 @@
             text-shadow: 0 0 5px var(--neon-green);
             animation: pulse-40 2s infinite alternate;
         }
-        
+
         @keyframes pulse-40 {
-            0% { transform: scale(1); box-shadow: 0 0 10px var(--neon-green); }
-            100% { transform: scale(1.05); box-shadow: 0 0 20px var(--neon-green), 0 0 30px var(--neon-green); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 10px var(--neon-green);
+            }
+
+            100% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px var(--neon-green), 0 0 30px var(--neon-green);
+            }
         }
-        
+
         .subtitle {
             font-size: 1.5rem;
             margin-bottom: 1rem;
         }
-        
+
         .countdown {
             background-color: rgba(0, 0, 0, 0.7);
             color: white;
@@ -135,11 +149,11 @@
             border: 1px solid var(--neon-green);
             box-shadow: 0 0 10px var(--neon-green);
         }
-        
+
         .countdown-item {
             margin: 0 1rem;
         }
-        
+
         .countdown-value {
             font-size: 2.5rem;
             font-weight: bold;
@@ -147,13 +161,13 @@
             color: var(--neon-green);
             text-shadow: 0 0 5px var(--neon-green);
         }
-        
+
         .countdown-label {
             font-size: 0.9rem;
             text-transform: uppercase;
             color: white;
         }
-        
+
         .card {
             background-color: rgba(25, 25, 30, 0.9);
             border-radius: 8px;
@@ -163,22 +177,22 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
         }
-        
+
         .neon-card-1 {
             border-left: 3px solid var(--neon-pink);
             box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
         }
-        
+
         .neon-card-2 {
             border-left: 3px solid var(--neon-blue);
             box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
         }
-        
+
         .neon-card-3 {
             border-left: 3px solid var(--neon-purple);
             box-shadow: 0 0 15px rgba(157, 0, 255, 0.3);
         }
-        
+
         .card h2 {
             color: white;
             margin-bottom: 1rem;
@@ -186,21 +200,21 @@
             padding-bottom: 0.5rem;
             display: inline-block;
         }
-        
+
         .birthday-girls {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
             margin: 2rem 0;
         }
-        
+
         .birthday-girl {
             text-align: center;
             width: 30%;
             min-width: 250px;
             margin-bottom: 2rem;
         }
-        
+
         .profile-image {
             width: 150px;
             height: 150px;
@@ -218,39 +232,46 @@
             box-shadow: 0 0 15px var(--neon-pink);
             animation: glow 3s infinite alternate;
         }
-        
+
         .profile-image-1 {
             border-color: var(--neon-pink);
             box-shadow: 0 0 15px var(--neon-pink);
         }
-        
+
         .profile-image-2 {
             border-color: var(--neon-blue);
             box-shadow: 0 0 15px var(--neon-blue);
         }
-        
+
         .profile-image-3 {
             border-color: var(--neon-purple);
             box-shadow: 0 0 15px var(--neon-purple);
         }
-        
+
         @keyframes glow {
-            0% { box-shadow: 0 0 5px currentColor; }
-            100% { box-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+            0% {
+                box-shadow: 0 0 5px currentColor;
+            }
+
+            100% {
+                box-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+            }
         }
-        
+
         .form-group {
             margin-bottom: 1.5rem;
         }
-        
+
         label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: bold;
             color: white;
         }
-        
-        input, select, textarea {
+
+        input,
+        select,
+        textarea {
             width: 100%;
             padding: 0.8rem;
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -259,18 +280,20 @@
             background-color: rgba(0, 0, 0, 0.3);
             color: white;
         }
-        
-        input:focus, select:focus, textarea:focus {
+
+        input:focus,
+        select:focus,
+        textarea:focus {
             outline: none;
             border-color: var(--neon-blue);
             box-shadow: 0 0 8px var(--neon-blue);
         }
-        
+
         textarea {
             min-height: 100px;
             resize: vertical;
         }
-        
+
         .btn {
             background: linear-gradient(45deg, var(--neon-blue), var(--neon-pink));
             color: white;
@@ -285,12 +308,12 @@
             font-weight: bold;
             box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
         }
-        
+
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 0 15px var(--neon-blue), 0 0 25px var(--neon-pink);
         }
-        
+
         .joke {
             font-style: italic;
             padding: 1rem;
@@ -299,7 +322,7 @@
             margin: 1rem 0;
             border-left: 3px solid var(--neon-yellow);
         }
-        
+
         .footer {
             text-align: center;
             margin-top: 2rem;
@@ -307,7 +330,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.7);
         }
-        
+
         .bank-account {
             background-color: rgba(0, 0, 0, 0.3);
             border: 2px dashed var(--neon-green);
@@ -317,7 +340,7 @@
             text-align: center;
             box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
         }
-        
+
         .bank-account-number {
             font-family: monospace;
             font-size: 1.2rem;
@@ -330,7 +353,7 @@
             display: inline-block;
             text-shadow: 0 0 5px var(--neon-green);
         }
-        
+
         .white-dress-note {
             background-color: rgba(0, 0, 0, 0.5);
             border-left: 4px solid var(--neon-blue);
@@ -338,7 +361,7 @@
             margin: 1.5rem 0;
             box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
         }
-        
+
         .neon-theme-reveal {
             background: linear-gradient(to right, rgba(255, 0, 255, 0.2), rgba(0, 255, 255, 0.2));
             padding: 1.5rem;
@@ -347,7 +370,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .neon-theme-reveal::before {
             content: "";
             position: absolute;
@@ -355,22 +378,30 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, 
-                rgba(255, 0, 255, 0.1), 
-                rgba(0, 255, 255, 0.1),
-                rgba(157, 0, 255, 0.1),
-                rgba(0, 255, 0, 0.1));
+            background: linear-gradient(45deg,
+                    rgba(255, 0, 255, 0.1),
+                    rgba(0, 255, 255, 0.1),
+                    rgba(157, 0, 255, 0.1),
+                    rgba(0, 255, 0, 0.1));
             animation: gradient-shift 5s infinite alternate;
             z-index: -1;
             border-radius: 8px;
         }
-        
+
         @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
-        
+
         .forty-banner {
             position: relative;
             background: linear-gradient(45deg, var(--neon-pink), var(--neon-purple));
@@ -381,7 +412,7 @@
             overflow: hidden;
             box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
         }
-        
+
         .forty-banner::before {
             content: "";
             position: absolute;
@@ -393,19 +424,19 @@
             opacity: 0.3;
             z-index: 0;
         }
-        
+
         .forty-banner h3 {
             font-size: 2rem;
             margin-bottom: 1rem;
             position: relative;
             z-index: 1;
         }
-        
+
         .forty-banner p {
             position: relative;
             z-index: 1;
         }
-        
+
         .forty-badge {
             display: inline-block;
             background: rgba(0, 0, 0, 0.5);
@@ -420,7 +451,7 @@
             position: relative;
             z-index: 1;
         }
-        
+
         .forty-jokes {
             margin: 1.5rem 0;
             padding: 1rem;
@@ -428,53 +459,53 @@
             border-radius: 8px;
             border-left: 3px solid var(--neon-yellow);
         }
-        
+
         .forty-jokes h4 {
             color: var(--neon-yellow);
             margin-bottom: 1rem;
         }
-        
+
         .forty-jokes ul {
             list-style-type: none;
         }
-        
+
         .forty-jokes li {
             margin-bottom: 0.8rem;
             padding-left: 1.5rem;
             position: relative;
         }
-        
+
         .forty-jokes li::before {
             content: "✨";
             position: absolute;
             left: 0;
             color: var(--neon-yellow);
         }
-        
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
             }
-            
+
             .countdown {
                 flex-direction: column;
             }
-            
+
             .countdown-item {
                 margin: 0.5rem 0;
             }
-            
+
             .birthday-girls {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .birthday-girl {
                 width: 100%;
             }
         }
-        
+
         /* Fun elements */
         .balloon {
             position: fixed;
@@ -483,19 +514,21 @@
             z-index: -1;
             opacity: 0.5;
         }
-        
+
         @keyframes float {
             0% {
                 transform: translateY(0) rotate(0deg);
             }
+
             50% {
                 transform: translateY(-800px) rotate(10deg);
             }
+
             100% {
                 transform: translateY(-1600px) rotate(0deg);
             }
         }
-        
+
         .success-message {
             display: none;
             background-color: rgba(0, 255, 0, 0.3);
@@ -507,7 +540,7 @@
             border: 1px solid var(--neon-green);
             box-shadow: 0 0 10px var(--neon-green);
         }
-        
+
         .error-message {
             display: none;
             background-color: rgba(255, 0, 0, 0.3);
@@ -519,10 +552,11 @@
             border: 1px solid #ff0000;
             box-shadow: 0 0 10px #ff0000;
         }
-        
+
         .neon-glow {
             filter: drop-shadow(0 0 5px currentColor);
         }
+
         .neon-selector {
             display: flex;
             flex-wrap: wrap;
@@ -556,7 +590,7 @@
             transform: translateY(-5px);
         }
 
-        .neon-option input[type="radio"]:checked + .option-label {
+        .neon-option input[type="radio"]:checked+.option-label {
             background-color: rgba(0, 0, 0, 0.5);
             transform: translateY(-5px);
         }
@@ -584,25 +618,29 @@
             opacity: 0.8;
         }
 
-@media (max-width: 768px) {
-    .neon-selector {
-        flex-direction: column;
-    }
-}
+        @media (max-width: 768px) {
+            .neon-selector {
+                flex-direction: column;
+            }
+        }
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
-      (function() {
-        // Reemplaza "tu_user_id" con tu ID de usuario de EmailJS
-        emailjs.init("vab4HD8Jp-sZVyOCF");
-      })();
+        (function () {
+            // Reemplaza "tu_user_id" con tu ID de usuario de EmailJS
+            emailjs.init("vab4HD8Jp-sZVyOCF");
+        })();
     </script>
 </head>
+
 <body>
-    <div class="balloon" style="left: 5%; animation-delay: 0s;"><i class="fas fa-birthday-cake" style="font-size: 2rem; color: var(--neon-pink);"></i></div>
-    <div class="balloon" style="left: 20%; animation-delay: 2s;"><i class="fas fa-gift" style="font-size: 2rem; color: var(--neon-blue);"></i></div>
-    <div class="balloon" style="left: 80%; animation-delay: 4s;"><i class="fas fa-glass-cheers" style="font-size: 2rem; color: var(--neon-green);"></i></div>
-    
+    <div class="balloon" style="left: 5%; animation-delay: 0s;"><i class="fas fa-birthday-cake"
+            style="font-size: 2rem; color: var(--neon-pink);"></i></div>
+    <div class="balloon" style="left: 20%; animation-delay: 2s;"><i class="fas fa-gift"
+            style="font-size: 2rem; color: var(--neon-blue);"></i></div>
+    <div class="balloon" style="left: 80%; animation-delay: 4s;"><i class="fas fa-glass-cheers"
+            style="font-size: 2rem; color: var(--neon-green);"></i></div>
+
     <div class="container">
         <header>
             <div class="confetti" style="left: 10%; animation-delay: 0s; background-color: var(--neon-pink);"></div>
@@ -614,7 +652,7 @@
             <div class="confetti" style="left: 70%; animation-delay: 2.5s; background-color: var(--neon-pink);"></div>
             <div class="confetti" style="left: 80%; animation-delay: 0.7s; background-color: var(--neon-blue);"></div>
             <div class="confetti" style="left: 90%; animation-delay: 1.2s; background-color: var(--neon-green);"></div>
-            
+
             <h1 class="neon-text">¡Triple Cumpleaños!</h1>
             <div class="age-badge">40 años</div>
             <p class="subtitle">Stephanie, Caterine y Paola celebran juntas</p>
@@ -637,62 +675,75 @@
                 </div>
             </div>
         </header>
-        
+
         <main>
             <div class="forty-banner">
                 <h3 class="neon-text">¡Los 40s son los nuevos 20s!</h3>
                 <div class="forty-badge">4.0</div>
                 <p>No estamos cumpliendo 40 - estamos desbloqueando una nueva versión: <br>
-                <strong>Versión 4.0</strong> — Con más experiencia, menos paciencia para tonterías y capacidad mejorada para detectar BS.</p>
+                    <strong>Versión 4.0</strong> — Con más experiencia, menos paciencia y capacidad
+                    mejorada para detectar Boludeces.
+                </p>
             </div>
-            
+
             <section class="card neon-card-1">
                 <h2>¡Estamos cumpliendo años y queremos celebrarlo contigo!</h2>
                 <div class="joke">
-                    <p>¿Por qué las tres decidimos celebrar nuestro cumpleaños juntas? Porque una sola fiesta = ¡triple diversión y un tercio de los gastos! (La sabiduría financiera llega con la edad 😂)</p>
+                    <p>¿Por qué decidimos celebrar nuestro cumpleaños juntas? Porque una sola fiesta = ¡triple
+                        diversión y un tercio de los gastos! (La sabiduría financiera llega con la edad 😂)</p>
                 </div>
-                
+
                 <div class="forty-jokes">
-                    <h4>40 años: lo que nadie te cuenta...</h4>
+                    <h4>Lo que nadie te cuenta de llegar a los 40:</h4>
                     <ul>
-                        <li>Nuestra idea de una noche loca ahora incluye estar en casa antes de las 10 PM con una buena serie y sin sujetador.</li>
-                        <li>¡Finalmente sabemos lo que queremos en la vida! Desafortunadamente, la mitad requiere un viaje en el tiempo y la otra mitad requiere ganar la lotería.</li>
-                        <li>Ahora nos conocemos tan bien que sabemos exactamente qué tipo de crema anti-arrugas funciona mejor para nosotras.</li>
-                        <li>Cuando tienes 40, "levantamiento de pesas" significa cargar todas las bolsas del supermercado en un solo viaje.</li>
+                        <li>Nuestra idea de diversión incluye estar en casa antes de las 22, con una buena serie y sin corpiño.</li>
+                        <li>¡Finalmente sabemos lo que queremos en la vida! Desafortunadamente, la mitad requiere un
+                            viaje en el tiempo y la otra mitad requiere ganar la lotería.</li>
+                        <li>Ahora nos conocemos tan bien que sabemos exactamente qué tipo de crema anti-arrugas funciona
+                            mejor para nosotras.</li>
+                        <li>Cuando tienes 40, "levantamiento de pesas" significa cargar todas las bolsas del
+                            supermercado en un solo viaje.</li>
                     </ul>
                 </div>
-                
+
                 <div class="birthday-girls">
                     <div class="birthday-girl">
                         <div class="profile-image profile-image-1">S</div>
                         <h3>Stephanie</h3>
-                        <p>La aventurera del grupo que siempre tiene una historia que contar (y ahora también un kit de primeros auxilios en su bolso).</p>
+                        <p>La compañera fiel que dice que odia salir, pero nunca dice que no a un paseo si hay comida de por medio.  
+                           Su superpoder: parecer antipática y aburrida... hasta que la conoces de verdad.</p>
                     </div>
                     <div class="birthday-girl">
                         <div class="profile-image profile-image-2">C</div>
                         <h3>Caterine</h3>
-                        <p>La organizada que hace que todo funcione perfectamente (y tiene una lista de excusas perfectas para escapar temprano de eventos aburridos).</p>
+                        <p>Siempre ocupada, estudiante de por vida y con más grupos de amigos que tiempo libre.  
+                           Tan bondadosa que dirá que sí a todo.</p>
                     </div>
                     <div class="birthday-girl">
                         <div class="profile-image profile-image-3">P</div>
                         <h3>Paola</h3>
-                        <p>La creativa que siempre trae ideas innovadoras a la mesa (y ahora también trae sus propios snacks saludables y un cojín para la espalda).</p>
+                        <p>Buscando eternamente la Paz mental y equilibrio, ahora a través del yoga (al menos busca opciones para intentarlo) 
+                            Con poca paciencia, salvo para encontrar la postura ideal para sentarse</p>
                     </div>
                 </div>
-                
-                <p>Únete a nuestra celebración el <strong>07 de junio de 2025</strong> a las <strong>20:30 horas</strong> en el <strong>La Glorieta</strong>.</p>
-                
+
+                <p>Únete a nuestra celebración el <strong>07 de junio de 2025</strong> a las <strong>20:30
+                        horas</strong> en el <strong>La Glorieta</strong>.</p>
+
                 <div class="white-dress-note">
                     <h4><i class="fas fa-tshirt"></i> Código de vestimenta especial</h4>
-                    <p>Para darle un toque especial a la fiesta, nos encantaría que uses <strong>algo blanco</strong> en tu vestimenta. ¡Una prenda, un accesorio sería fantástico si te animas!</p>
+                    <p>Para darle un toque especial a la fiesta, nos encantaría que uses <strong>algo blanco</strong> en
+                        tu vestimenta. ¡Una prenda, un accesorio sería fantástico si te animas!</p>
                 </div>
-                
+
                 <div class="neon-theme-reveal">
                     <h4 style="color: var(--neon-blue);" class="neon-text">¡SORPRESA! Fiesta Temática de Neón</h4>
-                    <p>La razón del código de vestimenta blanco es que tendremos una <strong>fiesta de neón</strong> donde las prendas blancas brillarán con nuestras luces ultravioleta. ¡A los 40 años hemos decidido que es hora de brillar más que nunca! Habrá pinturas fluorescentes, accesorios brillantes y una decoración que te transportará a los clubes de los 90s (pero con sillas cómodas disponibles para todos, porque sabemos lo que importa 😉).</p>
+                    <p>¡A los 40 años hemos
+                        decidido que es hora de brillar más que nunca! Habrá una decoración que te transportará a los clubes de los 90s (pero con sillas cómodas
+                        disponibles para todos, porque sabemos lo que importa 😉).</p>
                 </div>
             </section>
-            
+
             <section class="card neon-card-2">
                 <h2>Confirma tu asistencia</h2>
                 <form id="invitation-form">
@@ -700,14 +751,14 @@
                         <label for="name">Nombre completo*</label>
                         <input type="text" id="name" name="name" required>
                     </div>
-                    
+
                     <!-- Eliminado el campo de correo electrónico, ahora usaremos uno predeterminado -->
-                    
+
                     <div class="form-group">
                         <label for="phone">Teléfono</label>
                         <input type="tel" id="phone" name="phone">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="attendance">¿Asistirás?*</label>
                         <select id="attendance" name="attendance" required>
@@ -717,18 +768,19 @@
                             <option value="no">Lo siento, no podré asistir</option>
                         </select>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="guests">Número de acompañantes</label>
                         <input type="number" id="guests" name="guests" min="0" max="2" value="0">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="favorite-girl">Confiesa... ¿Por quién de las tres vienes realmente? 👀 *</label>
                         <div class="neon-selector">
                             <div class="neon-option">
                                 <input type="radio" id="girl-stephanie" name="favorite-girl" value="Stephanie" required>
-                                <label for="girl-stephanie" class="option-label" style="border-color: var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink);">
+                                <label for="girl-stephanie" class="option-label"
+                                    style="border-color: var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink);">
                                     <div class="mini-profile" style="background-color: var(--neon-pink);">S</div>
                                     <span>Stephanie</span>
                                     <small>La aventurera</small>
@@ -736,7 +788,8 @@
                             </div>
                             <div class="neon-option">
                                 <input type="radio" id="girl-caterine" name="favorite-girl" value="Caterine" required>
-                                <label for="girl-caterine" class="option-label" style="border-color: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue);">
+                                <label for="girl-caterine" class="option-label"
+                                    style="border-color: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue);">
                                     <div class="mini-profile" style="background-color: var(--neon-blue);">C</div>
                                     <span>Caterine</span>
                                     <small>La organizada</small>
@@ -744,7 +797,8 @@
                             </div>
                             <div class="neon-option">
                                 <input type="radio" id="girl-paola" name="favorite-girl" value="Paola" required>
-                                <label for="girl-paola" class="option-label" style="border-color: var(--neon-purple); box-shadow: 0 0 10px var(--neon-purple);">
+                                <label for="girl-paola" class="option-label"
+                                    style="border-color: var(--neon-purple); box-shadow: 0 0 10px var(--neon-purple);">
                                     <div class="mini-profile" style="background-color: var(--neon-purple);">P</div>
                                     <span>Paola</span>
                                     <small>La creativa</small>
@@ -755,79 +809,90 @@
 
                     <div class="form-group">
                         <label for="message">Mensaje para las cumpleañeras</label>
-                        <textarea id="message" name="message" placeholder="¿Algún mensaje especial o algo que debamos saber?"></textarea>
+                        <textarea id="message" name="message"
+                            placeholder="¿Algún mensaje especial o algo que debamos saber?"></textarea>
                     </div>
 
-                    
+
                     <div class="form-group">
                         <label for="forty-question">¿Qué consejo darías a alguien que teme cumplir 40?</label>
-                        <textarea id="forty-question" name="forty-question" placeholder="Comparte tu sabiduría con las que vienen detrás..."></textarea>
+                        <textarea id="forty-question" name="forty-question"
+                            placeholder="Comparte tu sabiduría con las que vienen detrás..."></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Correo electrónico <small>(opcional - agrégalo si deseas recibir la invitación por email)</small></label>
+                        <label for="email">Correo electrónico <small>(opcional - agrégalo si deseas recibir la
+                                invitación por email)</small></label>
                         <input type="email" id="email" name="email" placeholder="tu@email.com">
                     </div>
 
                     <button type="submit" class="btn">Enviar confirmación</button>
-                    <div class="loading-indicator" id="loading-indicator" style="display: none; text-align: center; margin-top: 1rem;">
+                    <div class="loading-indicator" id="loading-indicator"
+                        style="display: none; text-align: center; margin-top: 1rem;">
                         <i class="fas fa-spinner fa-spin" style="font-size: 1.5rem; color: var(--neon-blue);"></i>
                         <span style="margin-left: 0.5rem;">Enviando...</span>
                     </div>
 
                     <div class="success-message" id="success-message">
-                        ¡Gracias por confirmar! Hemos recibido tu respuesta y estamos ansiosas por verte brillar en la fiesta.
+                        ¡Gracias por confirmar! Hemos recibido tu respuesta y estamos ansiosas por verte brillar en la
+                        fiesta.
                     </div>
-                    
+
                     <div class="error-message" id="error-message">
                         Ha ocurrido un error al enviar el formulario. Por favor, intenta nuevamente.
                     </div>
                 </form>
             </section>
-            
+
             <section class="card neon-card-3">
                 <h2>¿Quieres contribuir con un regalo?</h2>
-                <p>Tu presencia es el mejor regalo, pero si prefieres hacer una contribución para nuestro fondo de aventuras futuras...</p>
-                
+                <p>Tu presencia es el mejor regalo, pero si prefieres hacer una contribución para nuestro fondo de
+                    aventuras futuras...</p>
+
                 <div class="bank-account">
-                    <h4>Fondo Colectivo de Cumpleaños</h4>
+                    <h4>Cuenta Bancaria <span id="account-owner">Stephanie</span></h4>
                     <p class="bank-account-number" id="account-number">ES91 2468 1357 9012 3456 7890</p>
                     <p><small>🔒 Primera regla del código bancario: No preguntes qué haremos con el dinero.</small></p>
                     <p><small>🏝️ Segunda regla: Probablemente involucre una isla desierta y palmeras.</small></p>
-                    <p><small>💸 Esta cuenta pertenece a <span id="account-owner">Stephanie</span>, pero no te preocupes, somos buenas compartiendo... la mayor parte del tiempo.</small></p>
+                    <p><small>💸 Esta cuenta pertenece a <span id="account-owner">Stephanie</span>, pero no te
+                            preocupes, somos buenas compartiendo... la mayor parte del tiempo.</small></p>
                 </div>
-                
+
                 <div class="joke">
-                    <p>Promesa: Con tu contribución, te enviaremos una postal desde cualquier playa exótica que visitemos. Si no contribuyes, también te enviaremos una postal... pero con arena y un "¡ojalá estuvieras aquí!" 😉</p>
+                    <p>Promesa: Con tu contribución, te enviaremos una postal desde cualquier playa exótica que
+                        visitemos. Si no contribuyes, también te enviaremos una postal... pero con arena y un "¡ojalá
+                        estuvieras aquí!" 😉</p>
                 </div>
             </section>
         </main>
-        
+
         <footer class="footer">
-            <p>Hecho con <i class="fas fa-heart" style="color: var(--neon-pink);"></i> por Stephanie, Caterine y Paola</p>
-            <p>¿Preguntas? Contacta a <a href="mailto:triple.cumple@example.com" style="color: var(--neon-blue); text-decoration: none;">triple.cumple@example.com</a></p>
+            <p>Hecho con <i class="fas fa-heart" style="color: var(--neon-pink);"></i> por Stephanie, Caterine y Paola
+            </p>
+            <p>¿Preguntas? Contacta a <a href="mailto:triple.cumple@example.com"
+                    style="color: var(--neon-blue); text-decoration: none;">triple.cumple@example.com</a></p>
         </footer>
     </div>
-    
+
     <script>
         // Countdown functionality
         function updateCountdown() {
             const targetDate = new Date('Jun 07, 2025 20:30:00').getTime();
             const now = new Date().getTime();
             const distance = targetDate - now;
-            
+
             // Time calculations
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
+
             // Display the result
             document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
             document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
             document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
             document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
-            
+
             // If the countdown is over
             if (distance < 0) {
                 clearInterval(countdownTimer);
@@ -837,78 +902,80 @@
                 document.getElementById("seconds").innerHTML = "00";
             }
         }
-        
+
         // Update the countdown every second
         updateCountdown();
         const countdownTimer = setInterval(updateCountdown, 1000);
         // Añadir este código antes de la función de envío del formulario
-        document.addEventListener('DOMContentLoaded', function() {
-            // Referencias a los elementos
+        // Agregar este código al final de tu archivo JavaScript o dentro de una etiqueta <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Selector de la cumpleañera y cuenta bancaria
             const stephRadio = document.getElementById('girl-stephanie');
             const cateRadio = document.getElementById('girl-caterine');
             const paolaRadio = document.getElementById('girl-paola');
             const accountNumber = document.getElementById('account-number');
             const accountOwner = document.getElementById('account-owner');
-            
-            // Función para actualizar el número de cuenta según la selección
+
+            // Función para actualizar la información de cuenta basada en la selección
             function updateAccountInfo() {
-                if (stephRadio.checked) {
-                    accountNumber.textContent = "ES91 2468 1357 9012 3456 7890";
-                    accountOwner.textContent = "Stephanie";
-                } else if (cateRadio.checked) {
-                    accountNumber.textContent = "ES91 1357 2468 5791 3456 7890";
-                    accountOwner.textContent = "Caterine";
-                } else if (paolaRadio.checked) {
-                    accountNumber.textContent = "ES91 9753 1246 8024 3456 7890";
-                    accountOwner.textContent = "Paola";
+                if (stephRadio && stephRadio.checked) {
+                    if (accountNumber) accountNumber.textContent = "HSBC - 8315528";
+                    if (accountOwner) accountOwner.textContent = "Stephanie";
+                } else if (cateRadio && cateRadio.checked) {
+                    if (accountNumber) accountNumber.textContent = "BROU - 001350212-00002";
+                    if (accountOwner) accountOwner.textContent = "Caterine";
+                } else if (paolaRadio && paolaRadio.checked) {
+                    if (accountNumber) accountNumber.textContent = "OCA Blue - 4110785";
+                    if (accountOwner) accountOwner.textContent = "Paola";
                 }
             }
-            
-            // Asignar eventos a los radio buttons
-            stephRadio.addEventListener('change', updateAccountInfo);
-            cateRadio.addEventListener('change', updateAccountInfo);
-            paolaRadio.addEventListener('change', updateAccountInfo);
-            
-            // Inicializar con el primer radio button si ninguno está seleccionado
-            if (!stephRadio.checked && !cateRadio.checked && !paolaRadio.checked) {
+
+            // Agregar listeners si los elementos existen
+            if (stephRadio) stephRadio.addEventListener('change', updateAccountInfo);
+            if (cateRadio) cateRadio.addEventListener('change', updateAccountInfo);
+            if (paolaRadio) paolaRadio.addEventListener('change', updateAccountInfo);
+
+            // Inicializar (seleccionar Stephanie por defecto si ninguna está seleccionada)
+            if (stephRadio && cateRadio && paolaRadio &&
+                !stephRadio.checked && !cateRadio.checked && !paolaRadio.checked) {
                 stephRadio.checked = true;
             }
-            
+
             // Actualizar el número al cargar la página
             updateAccountInfo();
         });
         // Form submission
         // Form submission with EmailJS
         // Form submission with EmailJS
-        document.getElementById('invitation-form').addEventListener('submit', function(e) {
+        document.getElementById('invitation-form').addEventListener('submit', function (e) {
             e.preventDefault();
             document.getElementById('loading-indicator').style.display = 'block';
 
             // Deshabilitar el botón durante el envío
             const submitButton = document.querySelector('button[type="submit"]');
             submitButton.disabled = true;
-            
+
             // Obtener datos del formulario
             const formData = new FormData(this);
             const formObject = {};
             formData.forEach((value, key) => {
                 formObject[key] = value;
             });
-            
+
             // Formatear la fecha actual
             const now = new Date();
-            const formattedDate = now.toLocaleDateString('es-ES', { 
-                year: 'numeric', 
-                month: 'long', 
+            const formattedDate = now.toLocaleDateString('es-ES', {
+                year: 'numeric',
+                month: 'long',
                 day: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit'
             });
-            
+
             // Determinar la clase CSS para el estado de asistencia
             let attendanceClass = '';
             let attendanceText = '';
-            
+
             if (formObject.attendance === 'yes') {
                 attendanceClass = 'attendance-yes';
                 attendanceText = '¡Asistirá!';
@@ -920,6 +987,22 @@
                 attendanceText = 'No podrá asistir';
             }
             const selectedGirl = formObject["favorite-girl"];
+
+            let accountNumber = "";
+            switch (selectedGirl) {
+                case "Stephanie":
+                    accountNumber = "HSBC - 8315528";
+                    break;
+                case "Caterine":
+                    accountNumber = "BROU - 001350212-00002";
+                    break;
+                case "Paola":
+                    accountNumber = "OCA Blue - 4110785";
+                    break;
+                default:
+                    accountNumber = "Selecciona cumpleañera!"; // Cuenta por defecto
+            }
+
             // Preparar los parámetros para la plantilla del administrador
             const adminTemplateParams = {
                 name: formObject.name || 'No especificado',
@@ -931,14 +1014,15 @@
                 message: formObject.message || 'Sin mensaje',
                 forty_advice: formObject["forty-question"] || 'Sin consejo',
                 favorite_girl: selectedGirl,
+                account_number: accountNumber,
                 date_time: formattedDate
             };
-            
+
             // Enviar email al administrador
             emailjs.send('service_cumple', 'template_cumple40', adminTemplateParams)
-                .then(function(response) {
+                .then(function (response) {
                     console.log('Admin notification sent!', response.status);
-                    
+
                     // Si el usuario proporcionó un email, enviar confirmación al usuario
                     if (formObject.email && formObject.email.trim() !== '') {
                         // Preparar los parámetros para la plantilla del usuario
@@ -949,52 +1033,53 @@
                             event_location: 'La Glorieta',
                             phone: formObject.phone || 'No especificado',
                             email: formObject.email || 'No proporcionado', // Añadido el campo email
-                            attendance: formObject.attendance === 'yes' ? 'Confirmada' : 
-                                    (formObject.attendance === 'maybe' ? 'Posible asistencia' : 'No podrá asistir'),
+                            attendance: formObject.attendance === 'yes' ? 'Confirmada' :
+                                (formObject.attendance === 'maybe' ? 'Posible asistencia' : 'No podrá asistir'),
                             guests: formObject.guests || '0',
                             message: formObject.message || 'Sin mensaje',
                             forty_advice: formObject["forty-question"] || 'Sin consejo',
                             host_name: 'Stephanie, Caterine y Paola',
-                            reply_email: 'triple.cumple@example.com', // Email para que el usuario responda
+                            reply_email: 'maximilianocesan@gmail.com', // Email para que el usuario responda
+                            account_number: accountNumber,
                             to_email: formObject.email // Email del usuario
                         };
-                        
+
                         // Enviar email al usuario - necesitas crear una segunda plantilla para esto
                         return emailjs.send('service_cumple', 'template_usuario_cumple', userTemplateParams);
                     }
-                    
+
                     return Promise.resolve(); // Si no hay email, simplemente continuar
                 })
-                .then(function(userResponse) {
+                .then(function (userResponse) {
                     if (userResponse) {
                         console.log('User confirmation sent!', userResponse.status);
                     }
-                    
+
                     // Ocultar indicador de carga
                     document.getElementById('loading-indicator').style.display = 'none';
-                    
+
                     // Mostrar mensaje de éxito brevemente
                     document.getElementById('success-message').style.display = 'block';
-                    
+
                     // Redirigir a la página de agradecimiento después de un breve retraso
                     setTimeout(() => {
                         window.location.href = 'gracias.html';
                     }, 1000); // Redirige después de 1 segundo
                 })
-                .catch(function(error) {
+                .catch(function (error) {
                     console.log('FAILED...', error);
-                    
+
                     // Ocultar indicador de carga
                     document.getElementById('loading-indicator').style.display = 'none';
-                    
+
                     // Mostrar mensaje de error con detalles
-                    document.getElementById('error-message').textContent = 
+                    document.getElementById('error-message').textContent =
                         'Error al enviar el formulario: ' + (error.text || 'Verifica tus datos');
                     document.getElementById('error-message').style.display = 'block';
-                    
+
                     // Re-habilitar el botón
                     submitButton.disabled = false;
-                    
+
                     // Ocultar mensaje de error después de 5 segundos
                     setTimeout(() => {
                         document.getElementById('error-message').style.display = 'none';
@@ -1004,20 +1089,20 @@
         // Create confetti effect on submission
         function createConfettiEffect() {
             const container = document.querySelector('.container');
-            
+
             for (let i = 0; i < 50; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 confetti.style.left = Math.random() * 100 + '%';
                 confetti.style.animationDelay = Math.random() * 5 + 's';
-                
+
                 // Neon colors for confetti
                 const neonColors = ['#ff00ff', '#00ffff', '#00ff00', '#ffff00', '#9d00ff'];
                 const randomColor = neonColors[Math.floor(Math.random() * neonColors.length)];
                 confetti.style.backgroundColor = randomColor;
-                
+
                 container.appendChild(confetti);
-                
+
                 // Remove confetti after animation
                 setTimeout(() => {
                     confetti.remove();
@@ -1026,4 +1111,5 @@
         }
     </script>
 </body>
+
 </html>

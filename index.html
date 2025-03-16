@@ -770,7 +770,7 @@
 
                     <div class="form-group">
                         <label for="guests">Número de acompañantes</label>
-                        <input type="number" id="guests" name="guests" min="0" max="2" value="0">
+                        <input type="number" id="guests" name="guests" min="0" max="5" value="0">
                     </div>
 
                     <div class="form-group">
@@ -844,7 +844,7 @@
                     <p class="bank-account-number" id="account-number">ES91 2468 1357 9012 3456 7890</p>
                     <p><small>🔒 Primera regla del código bancario: No preguntes qué haremos con el dinero.</small></p>
                     <p><small>🏝️ Segunda regla: Probablemente involucre una isla desierta y palmeras.</small></p>
-                    <p><small>💸 Esta cuenta pertenece a <span id="account-owner">Stephanie</span>, pero no te
+                    <p><small>💸 Esta cuenta pertenece a <span id="account-owner-b">Stephanie</span>, pero no te
                             preocupes, somos buenas compartiendo... la mayor parte del tiempo.</small></p>
                 </div>
 
@@ -859,8 +859,8 @@
         <footer class="footer">
             <p>Hecho con <i class="fas fa-heart" style="color: var(--neon-pink);"></i> por Stephanie, Caterine y Paola
             </p>
-            <p>¿Preguntas? Contacta a <a href="mailto:triple.cumple@example.com"
-                    style="color: var(--neon-blue); text-decoration: none;">triple.cumple@example.com</a></p>
+            <p>¿Preguntas? Contacta a <a href="mailto:arq.scasertap@gmail.com"
+                    style="color: var(--neon-blue); text-decoration: none;">arq.scasertap@gmail.com</a></p>
         </footer>
     </div>
 
@@ -905,18 +905,22 @@
             const paolaRadio = document.getElementById('girl-paola');
             const accountNumber = document.getElementById('account-number');
             const accountOwner = document.getElementById('account-owner');
+            const accountOwnerB = document.getElementById('account-owner-b');
 
             // Función para actualizar la información de cuenta basada en la selección
             function updateAccountInfo() {
                 if (stephRadio && stephRadio.checked) {
                     if (accountNumber) accountNumber.textContent = "HSBC Pesos - 8315528";
                     if (accountOwner) accountOwner.textContent = "Stephanie";
+                    if (accountOwnerB) accountOwnerB.textContent = "Stephanie";
                 } else if (cateRadio && cateRadio.checked) {
                     if (accountNumber) accountNumber.textContent = "BROU Pesos - 001350212-00002";
                     if (accountOwner) accountOwner.textContent = "Caterine";
+                    if (accountOwnerB) accountOwnerB.textContent = "Caterine";
                 } else if (paolaRadio && paolaRadio.checked) {
                     if (accountNumber) accountNumber.textContent = "OCA Blue Pesos - 4110785";
                     if (accountOwner) accountOwner.textContent = "Paola";
+                    if (accountOwnerB) accountOwnerB.textContent = "Paola";
                 }
             }
 
@@ -941,18 +945,18 @@
             e.preventDefault();
             document.getElementById('loading-indicator').style.display = 'block';
 
-            // Deshabilitar el botón durante el envío
+            // Disable the button during submission
             const submitButton = document.querySelector('button[type="submit"]');
             submitButton.disabled = true;
 
-            // Obtener datos del formulario
+            // Get form data
             const formData = new FormData(this);
             const formObject = {};
             formData.forEach((value, key) => {
                 formObject[key] = value;
             });
 
-            // Formatear la fecha actual
+            // Format current date
             const now = new Date();
             const formattedDate = now.toLocaleDateString('es-ES', {
                 year: 'numeric',
@@ -962,7 +966,7 @@
                 minute: '2-digit'
             });
 
-            // Determinar la clase CSS para el estado de asistencia
+            // Determine CSS class for attendance status
             let attendanceClass = '';
             let attendanceText = '';
 
@@ -976,24 +980,35 @@
                 attendanceClass = 'attendance-no';
                 attendanceText = 'No podrá asistir';
             }
+            
             const selectedGirl = formObject["favorite-girl"];
 
+            // Set the appropriate recipient email based on the selected girl
+            let recipientEmail = "";
             let accountNumber = "";
+            
             switch (selectedGirl) {
                 case "Stephanie":
+                    recipientEmail = "arq.scasertap@gmail.com";
                     accountNumber = "HSBC Pesos - 8315528";
                     break;
                 case "Caterine":
+                    recipientEmail = "caterineolivera@gmail.com";
                     accountNumber = "BROU Pesos - 001350212-00002";
                     break;
                 case "Paola":
+                    recipientEmail = "lopago1985@gmail.com";
                     accountNumber = "OCA Blue Pesos - 4110785";
                     break;
                 default:
-                    accountNumber = "Selecciona cumpleañera!"; // Cuenta por defecto
+                    recipientEmail = "arq.scasertap@gmail.com"; // Default email
+                    accountNumber = "Selecciona cumpleañera!";
             }
 
-            // Preparar los parámetros para la plantilla del administrador
+            // Dirección codificada para el mapa (reemplazar con la dirección real)
+            const mapAddress = encodeURIComponent("Glorieta, Salón de Fiestas, -34.8788235,-56.1677936");
+
+            // Prepare parameters for the admin template
             const adminTemplateParams = {
                 name: formObject.name || 'No especificado',
                 phone: formObject.phone || 'No especificado',
@@ -1004,77 +1019,83 @@
                 forty_advice: formObject["forty-question"] || 'Sin consejo',
                 favorite_girl: selectedGirl,
                 account_number: accountNumber,
-                date_time: formattedDate
+                date_time: formattedDate,
+                to_name: selectedGirl,             // Nombre del destinatario
+                to_email: recipientEmail,          // Email del destinatario (importante)
             };
 
-            // Enviar email al administrador
+            // Send email to the selected birthday person
             emailjs.send('service_cumple', 'template_cumple40', adminTemplateParams)
                 .then(function (response) {
                     console.log('Admin notification sent!', response.status);
 
-                    // Si el usuario proporcionó un email, enviar confirmación al usuario
-                    if (formObject.email && formObject.email.trim() !== '') {
-                        // Preparar los parámetros para la plantilla del usuario
+                    // If the user provided an email, send confirmation to the user
+                    if (formObject.email && formObject.email.trim() !== '' && formObject.attendance === 'yes') {
+                        // Prepare parameters for the user template
                         const userTemplateParams = {
                             name: formObject.name || 'Invitado',
-                            birthday_person: 'Stephanie, Caterine y Paola',
+                            birthday_person: selectedGirl, // Just send the selected girl's name
                             event_date: '07 de junio de 2025, 20:30 horas',
-                            event_location: 'La Glorieta',
+                            event_location: 'Glorieta, Salón de Fiestas',
                             phone: formObject.phone || 'No especificado',
-                            email: formObject.email || 'No proporcionado', // Añadido el campo email
+                            email: formObject.email || 'No proporcionado',
                             attendance: formObject.attendance === 'yes' ? 'Confirmada' :
                                 (formObject.attendance === 'maybe' ? 'Posible asistencia' : 'No podrá asistir'),
                             guests: formObject.guests || '0',
                             forty_advice: formObject["forty-question"] || 'Sin consejo',
                             host_name: 'Stephanie, Caterine y Paola',
-                            reply_email: 'maximilianocesan@gmail.com', // Email para que el usuario responda
+                            reply_email: recipientEmail, // Use the selected girl's email as reply-to
+                            favorite_girl: selectedGirl,
                             account_number: accountNumber,
-                            to_email: formObject.email // Email del usuario
-                        };
+                            map_address: mapAddress,
+                            to_name: formObject.name || 'Invitado', // Nombre del destinatario
+                            to_email: formObject.email,              // Email del destinatario (importante)
+                            from_name: selectedGirl,                 // Nombre del remitente
+                };
 
-                        // Enviar email al usuario - necesitas crear una segunda plantilla para esto
-                        return emailjs.send('service_cumple', 'template_usuario_cumple', userTemplateParams);
-                    }
+                // Send email to the user
+                return emailjs.send('service_cumple', 'template_usuario_cumple', userTemplateParams);
+            }
 
-                    return Promise.resolve(); // Si no hay email, simplemente continuar
-                })
-                .then(function (userResponse) {
-                    if (userResponse) {
-                        console.log('User confirmation sent!', userResponse.status);
-                    }
+            return Promise.resolve(); // If no email, simply continue
+        })
+        .then(function (userResponse) {
+            if (userResponse) {
+                console.log('User confirmation sent!', userResponse.status);
+            }
 
-                    // Ocultar indicador de carga
-                    document.getElementById('loading-indicator').style.display = 'none';
+            // Hide loading indicator
+            document.getElementById('loading-indicator').style.display = 'none';
 
-                    // Mostrar mensaje de éxito brevemente
-                    document.getElementById('success-message').style.display = 'block';
+            // Show success message briefly
+            document.getElementById('success-message').style.display = 'block';
 
-                    // Redirigir a la página de agradecimiento después de un breve retraso
-                    setTimeout(() => {
-                        window.location.href = 'gracias.html';
-                    }, 1000); // Redirige después de 1 segundo
-                })
-                .catch(function (error) {
-                    console.log('FAILED...', error);
+            // Redirect to thank you page after a brief delay
+            setTimeout(() => {
+                window.location.href = 'gracias.html';
+            }, 1000); // Redirect after 1 second
+        })
+        .catch(function (error) {
+            console.log('FAILED...', error);
 
-                    // Ocultar indicador de carga
-                    document.getElementById('loading-indicator').style.display = 'none';
+            // Hide loading indicator
+            document.getElementById('loading-indicator').style.display = 'none';
 
-                    // Mostrar mensaje de error con detalles
-                    document.getElementById('error-message').textContent =
-                        'Error al enviar el formulario: ' + (error.text || 'Verifica tus datos');
-                    document.getElementById('error-message').style.display = 'block';
+            // Show error message with details
+            document.getElementById('error-message').textContent =
+                'Error al enviar el formulario: ' + (error.text || 'Verifica tus datos');
+            document.getElementById('error-message').style.display = 'block';
 
-                    // Re-habilitar el botón
-                    submitButton.disabled = false;
+            // Re-enable the button
+            submitButton.disabled = false;
 
-                    // Ocultar mensaje de error después de 5 segundos
-                    setTimeout(() => {
-                        document.getElementById('error-message').style.display = 'none';
-                    }, 5000);
-                });
+            // Hide error message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('error-message').style.display = 'none';
+            }, 5000);
         });
-        // Create confetti effect on submission
+});
+         // Create confetti effect on submission
         function createConfettiEffect() {
             const container = document.querySelector('.container');
 

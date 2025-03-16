@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@
             --neon-yellow: #ffff00;
             --neon-purple: #9d00ff;
         }
-        
+
         body {
             background-color: #121212;
             color: white;
@@ -26,7 +27,7 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .thank-you-card {
             max-width: 600px;
             width: 100%;
@@ -38,7 +39,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         h1 {
             color: var(--neon-blue);
             font-size: 2.2rem;
@@ -46,19 +47,24 @@
             text-shadow: 0 0 5px var(--neon-blue);
             animation: neon-pulse 2s infinite alternate;
         }
-        
+
         @keyframes neon-pulse {
-            0% { text-shadow: 0 0 5px #fff, 0 0 10px var(--neon-blue); }
-            100% { text-shadow: 0 0 2px #fff, 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue); }
+            0% {
+                text-shadow: 0 0 5px #fff, 0 0 10px var(--neon-blue);
+            }
+
+            100% {
+                text-shadow: 0 0 2px #fff, 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+            }
         }
-        
+
         p {
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 1rem;
             color: rgba(255, 255, 255, 0.9);
         }
-        
+
         .btn {
             display: inline-block;
             margin-top: 25px;
@@ -73,45 +79,54 @@
             border: none;
             cursor: pointer;
         }
-        
+
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 0 15px var(--neon-blue), 0 0 25px var(--neon-pink);
         }
-        
+
         .confetti {
             position: absolute;
             width: 10px;
             height: 10px;
             animation: fall 5s linear infinite;
         }
-        
+
         @keyframes fall {
             0% {
                 top: -10px;
                 transform: translateX(0) rotate(0deg);
                 opacity: 1;
             }
+
             100% {
                 top: 100%;
                 transform: translateX(100px) rotate(360deg);
                 opacity: 0;
             }
         }
-        
+
         .icon-container {
             font-size: 3rem;
             color: var(--neon-green);
             margin: 1rem 0;
             animation: bounce 2s infinite;
         }
-        
+
         @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Confeti animado -->
     <div class="confetti" style="left: 10%; animation-delay: 0s; background-color: var(--neon-pink);"></div>
@@ -122,36 +137,80 @@
     <div class="confetti" style="left: 70%; animation-delay: 2.5s; background-color: var(--neon-pink);"></div>
     <div class="confetti" style="left: 80%; animation-delay: 0.7s; background-color: var(--neon-blue);"></div>
     <div class="confetti" style="left: 90%; animation-delay: 1.2s; background-color: var(--neon-green);"></div>
-    
+
     <div class="thank-you-card">
         <div class="icon-container">
             <i class="fas fa-check-circle"></i>
         </div>
         <h1>¡Gracias por confirmar tu asistencia!</h1>
         <p>Hemos recibido tu respuesta y estamos ansiosas por verte brillar en la fiesta.</p>
-        <p>Recuerda traer algo blanco para que brille con nuestras luces ultravioleta. ¡A los 40 vamos a celebrar con todo!</p>
+        <p>Recuerda traer algo blanco para que brille con nuestras luces ultravioleta. ¡A los 40 vamos a celebrar con
+            todo!</p>
         <p>Si tienes alguna duda, ponte en contacto con nosotras.</p>
         <a href="index.html" class="btn">Volver a la invitación</a>
     </div>
-    
+
     <script>
         // Crear más confeti al cargar la página
-        document.addEventListener('DOMContentLoaded', function() {
-            const body = document.body;
-            const neonColors = ['#ff00ff', '#00ffff', '#00ff00', '#ffff00', '#9d00ff'];
-            
-            for (let i = 0; i < 30; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.animationDelay = Math.random() * 5 + 's';
-                
-                const randomColor = neonColors[Math.floor(Math.random() * neonColors.length)];
-                confetti.style.backgroundColor = randomColor;
-                
-                body.appendChild(confetti);
+        document.addEventListener('DOMContentLoaded', function () {
+            // Verificar si hay un parámetro de WhatsApp en la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const hasWhatsapp = urlParams.get('whatsapp');
+            const phone = urlParams.get('phone');
+            const name = urlParams.get('name');
+            const guest = urlParams.get('guests') || '0';
+            const favorite = urlParams.get('favorite') || '';
+
+            if (hasWhatsapp === 'true' && phone) {
+                // Generar el mensaje de WhatsApp
+                let whatsappMessage = `¡Hola ${name || ''}! 🎉 Aquí está tu invitación para el Triple Cumpleaños #40 de Stephanie, Caterine y Paola. `;
+                whatsappMessage += `\n\n📅 Fecha: 07 de junio de 2025, 20:30 horas`;
+                whatsappMessage += `\n📍 Ubicación: Glorieta, Salón de Fiestas`;
+
+                if (guest && guest !== '0') {
+                    whatsappMessage += `\n👥 Asistirás con: ${guest} acompañante(s)`;
+                }
+
+                if (favorite) {
+                    whatsappMessage += `\n💕 Vienes por: ${favorite}`;
+                }
+
+                whatsappMessage += `\n\n🎆 Recuerda traer algo blanco para la fiesta neón.`;
+                whatsappMessage += `\n\n🔗 Ver ubicación: https://maps.google.com/?q=Glorieta,+Sal%C3%B3n+de+Fiestas,+-34.8788235,-56.1677936`;
+                whatsappMessage += `\n\n¡Nos vemos pronto! 🥳`;
+
+                // Codificar el mensaje para URL
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+
+                // El número ya viene formateado con el prefijo de Uruguay desde la URL
+                // WhatsApp requiere el número con formato internacional sin el "+"
+                // Generar el enlace de WhatsApp (para que el usuario se lo envíe a sí mismo)
+                const whatsappLink = `https://wa.me/${phone}?text=${encodedMessage}`;
+
+                // Crear botón de WhatsApp
+                const whatsappButton = document.createElement('a');
+                whatsappButton.href = whatsappLink;
+                whatsappButton.target = '_blank';
+                whatsappButton.className = 'btn';
+                whatsappButton.style.backgroundColor = '#25D366';
+                whatsappButton.style.margin = '15px auto 0';
+                whatsappButton.style.display = 'block';
+                whatsappButton.innerHTML = '<i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Recibir invitación por WhatsApp';
+
+                // Agregar el botón antes del botón de volver
+                const existingButton = document.querySelector('.btn');
+                if (existingButton) {
+                    existingButton.parentElement.insertBefore(whatsappButton, existingButton);
+                } else {
+                    // Si no se encuentra el botón existente, agregar al final de la tarjeta
+                    const container = document.querySelector('.thank-you-card');
+                    if (container) {
+                        container.appendChild(whatsappButton);
+                    }
+                }
             }
         });
     </script>
 </body>
+
 </html>

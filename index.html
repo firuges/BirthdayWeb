@@ -623,6 +623,38 @@
                 flex-direction: column;
             }
         }
+
+        /* Estilo para el checkbox personalizado */
+        .checkbox-container input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--neon-blue);
+            border-radius: 4px;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-container input[type="checkbox"]:checked {
+            background-color: var(--neon-blue);
+            box-shadow: 0 0 8px var(--neon-blue);
+        }
+
+        .checkbox-container input[type="checkbox"]:checked::before {
+            content: '✓';
+            position: absolute;
+            color: #000;
+            font-size: 14px;
+            font-weight: bold;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -695,7 +727,8 @@
                 <div class="forty-jokes">
                     <h4>Lo que nadie te cuenta de llegar a los 40:</h4>
                     <ul>
-                        <li>Nuestra idea de diversión incluye estar en casa antes de las 22, con una buena serie y sin corpiño.</li>
+                        <li>Nuestra idea de diversión incluye estar en casa antes de las 22, con una buena
+                            serie y sin corpiño.</li>
                         <li>¡Finalmente sabemos lo que queremos en la vida! Desafortunadamente, la mitad requiere un
                             viaje en el tiempo y la otra mitad requiere ganar la lotería.</li>
                         <li>Ahora nos conocemos tan bien que sabemos exactamente qué tipo de crema anti-arrugas funciona
@@ -709,19 +742,21 @@
                     <div class="birthday-girl">
                         <div class="profile-image profile-image-1">S</div>
                         <h3>Stephanie</h3>
-                        <p>La compañera fiel que dice que odia salir, pero nunca dice que no a un paseo si hay comida de por medio.  
-                           Su superpoder: parecer antipática y aburrida... hasta que la conoces de verdad.</p>
+                        <p>La compañera fiel que dice que odia salir, pero nunca dice que no a un paseo si hay comida de
+                            por medio.
+                            Su superpoder: parecer antipática y aburrida... hasta que la conoces de verdad.</p>
                     </div>
                     <div class="birthday-girl">
                         <div class="profile-image profile-image-2">C</div>
                         <h3>Caterine</h3>
-                        <p>Siempre ocupada, estudiante de por vida y con más grupos de amigos que tiempo libre.  
-                           Tan bondadosa que dirá que sí a todo.</p>
+                        <p>Siempre ocupada, estudiante de por vida y con más grupos de amigos que tiempo libre.
+                            Tan bondadosa que dirá que sí a todo.</p>
                     </div>
                     <div class="birthday-girl">
                         <div class="profile-image profile-image-3">P</div>
                         <h3>Paola</h3>
-                        <p>Buscando eternamente la Paz mental y equilibrio, ahora a través del yoga (al menos busca opciones para intentarlo) 
+                        <p>Buscando eternamente la Paz mental y equilibrio, ahora a través del yoga (al menos busca
+                            opciones para intentarlo)
                             Con poca paciencia, salvo para encontrar la postura ideal para sentarse</p>
                     </div>
                 </div>
@@ -738,7 +773,8 @@
                 <div class="neon-theme-reveal">
                     <h4 style="color: var(--neon-blue);" class="neon-text">¡SORPRESA! Fiesta Temática de Neón</h4>
                     <p>¡A los 40 años hemos
-                        decidido que es hora de brillar más que nunca! Habrá una decoración que te transportará a los clubes de los 90s (pero con sillas cómodas
+                        decidido que es hora de brillar más que nunca! Habrá una decoración que te transportará a los
+                        clubes de los 90s (pero con sillas cómodas
                         disponibles para todos, porque sabemos lo que importa 😉).</p>
                 </div>
             </section>
@@ -813,6 +849,14 @@
                         <label for="email">Correo electrónico <small>(opcional - agrégalo si deseas recibir la
                                 invitación por email)</small></label>
                         <input type="email" id="email" name="email" placeholder="tu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="whatsapp-opt" class="checkbox-container"
+                            style="display: flex; align-items: center; cursor: pointer; margin-top: 15px;">
+                            <input type="checkbox" id="whatsapp-opt" name="whatsapp-opt" style="margin-right: 10px;">
+                            <span>También deseo recibir la invitación por WhatsApp</span>
+                        </label>
                     </div>
 
                     <button type="submit" class="btn">Enviar confirmación</button>
@@ -979,13 +1023,13 @@
                 attendanceClass = 'attendance-no';
                 attendanceText = 'No podrá asistir';
             }
-            
+
             const selectedGirl = formObject["favorite-girl"];
 
             // Set the appropriate recipient email based on the selected girl
             let recipientEmail = "";
             let accountNumber = "";
-            
+
             switch (selectedGirl) {
                 case "Stephanie":
                     recipientEmail = "arq.scasertap@gmail.com";
@@ -1006,7 +1050,72 @@
 
             // Dirección codificada para el mapa (reemplazar con la dirección real)
             const mapAddress = encodeURIComponent("Glorieta, Salón de Fiestas, -34.8788235,-56.1677936");
+            if (formObject['whatsapp-opt'] && formObject.phone && formObject.phone.trim() !== '') {
+                // Limpiar el número de teléfono (eliminar espacios, guiones, etc.)
+                const phoneNumber = formObject.phone.replace(/\D/g, '');
 
+                // Generar el mensaje de WhatsApp
+                let whatsappMessage = `¡Hola ${formObject.name}! Gracias por confirmar tu asistencia al Triple Cumpleaños #40 de Stephanie, Caterine y Paola. `;
+                whatsappMessage += `\n\n📅 Fecha: 07 de junio de 2025, 20:30 horas`;
+                whatsappMessage += `\n📍 Ubicación: Glorieta, Salón de Fiestas`;
+
+                if (formObject.attendance === 'yes') {
+                    whatsappMessage += `\n\n¡Estamos felices de que asistirás!`;
+                    if (formObject.guests && formObject.guests > 0) {
+                        whatsappMessage += ` Te esperamos con tus ${formObject.guests} acompañantes.`;
+                    }
+                }
+
+                whatsappMessage += `\n\n🎉 Recuerda traer algo blanco para la fiesta neón.`;
+                whatsappMessage += `\n\n💳 Si deseas hacer una contribución, puedes usar la cuenta de ${selectedGirl}: ${accountNumber}`;
+
+                // Codificar el mensaje para URL
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+
+                // Generar y guardar el enlace de WhatsApp
+                const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+                // Guardamos este enlace para su uso posterior
+                // Puedes utilizar localStorage, una variable global, o mostrarlo en la UI
+                window.localStorage.setItem('whatsappInvitationLink', whatsappLink);
+
+                // Opcionalmente: Crear un botón en la página de agradecimiento para enviar por WhatsApp
+                // (Este código se ejecutará si redireccionamos a la página de agradecimiento)
+                setTimeout(() => {
+                    // Crear un elemento de script para ser inyectado en la página de agradecimiento
+                    const whatsappScript = document.createElement('script');
+                    whatsappScript.textContent = `
+                        // Verificar si hay un enlace de WhatsApp guardado
+                        const whatsappLink = window.localStorage.getItem('whatsappInvitationLink');
+                        if (whatsappLink) {
+                            // Crear un botón para enviar el mensaje de WhatsApp
+                            const whatsappButton = document.createElement('a');
+                            whatsappButton.href = whatsappLink;
+                            whatsappButton.target = '_blank';
+                            whatsappButton.className = 'btn';
+                            whatsappButton.innerHTML = '<i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Enviar invitación por WhatsApp';
+                            whatsappButton.style.backgroundColor = '#25D366';
+                            whatsappButton.style.margin = '15px auto';
+                            whatsappButton.style.display = 'block';
+                            whatsappButton.style.width = 'fit-content';
+                            
+                            // Agregar el botón después del botón de volver
+                            const container = document.querySelector('.thank-you-card');
+                            if (container) {
+                                container.appendChild(whatsappButton);
+                            }
+                            
+                            // Limpiar el localStorage después de crear el botón
+                            window.localStorage.removeItem('whatsappInvitationLink');
+                        }
+                    `;
+
+                    // Intentar agregar este script a la página de agradecimiento
+                    // (Esto podría no funcionar directamente debido a restricciones de navegador)
+                    // Una alternativa es pasar un parámetro en la URL a la página de agradecimiento
+                    document.body.appendChild(whatsappScript);
+                }, 500);
+            }
             // Prepare parameters for the admin template
             const adminTemplateParams = {
                 name: formObject.name || 'No especificado',
@@ -1050,51 +1159,84 @@
                             to_name: formObject.name || 'Invitado', // Nombre del destinatario
                             to_email: formObject.email,              // Email del destinatario (importante)
                             from_name: selectedGirl,                 // Nombre del remitente
-                };
+                        };
 
-                // Send email to the user
-                return emailjs.send('service_cumple', 'template_usuario_cumple', userTemplateParams);
-            }
+                        // Send email to the user
+                        return emailjs.send('service_cumple', 'template_usuario_cumple', userTemplateParams);
+                    }
 
-            return Promise.resolve(); // If no email, simply continue
-        })
-        .then(function (userResponse) {
-            if (userResponse) {
-                console.log('User confirmation sent!', userResponse.status);
-            }
+                    return Promise.resolve(); // If no email, simply continue
+                })
+                .then(function (userResponse) {
+                    if (userResponse) {
+                        console.log('User confirmation sent!', userResponse.status);
+                    }
 
-            // Hide loading indicator
-            document.getElementById('loading-indicator').style.display = 'none';
+                    // Hide loading indicator
+                    document.getElementById('loading-indicator').style.display = 'none';
 
-            // Show success message briefly
-            document.getElementById('success-message').style.display = 'block';
+                    // Show success message briefly
+                    document.getElementById('success-message').style.display = 'block';
 
-            // Redirect to thank you page after a brief delay
-            setTimeout(() => {
-                window.location.href = 'gracias.html';
-            }, 1000); // Redirect after 1 second
-        })
-        .catch(function (error) {
-            console.log('FAILED...', error);
+                    // Redirect to thank you page after a brief delay
+                    setTimeout(() => {
+                        // Función para formatear correctamente números de teléfono uruguayos
+                        function formatUruguayPhone(phoneNumber) {
+                            // Eliminar todos los caracteres no numéricos
+                            let cleaned = phoneNumber.replace(/\D/g, '');
 
-            // Hide loading indicator
-            document.getElementById('loading-indicator').style.display = 'none';
+                            // Si el número ya tiene el prefijo internacional, no lo agregamos
+                            if (cleaned.startsWith('598')) {
+                                return cleaned;
+                            }
 
-            // Show error message with details
-            document.getElementById('error-message').textContent =
-                'Error al enviar el formulario: ' + (error.text || 'Verifica tus datos');
-            document.getElementById('error-message').style.display = 'block';
+                            // Si el número comienza con 0, lo eliminamos (por ejemplo, 091... -> 91...)
+                            if (cleaned.startsWith('0')) {
+                                cleaned = cleaned.substring(1);
+                            }
 
-            // Re-enable the button
-            submitButton.disabled = false;
+                            // Agregar el prefijo internacional 598 (sin el + porque se codifica en la URL)
+                            return '598' + cleaned;
+                        }
 
-            // Hide error message after 5 seconds
-            setTimeout(() => {
-                document.getElementById('error-message').style.display = 'none';
-            }, 5000);
+                        // Verificar si el usuario optó por WhatsApp
+                        const wantsWhatsapp = formObject['whatsapp-opt'] ? true : false;
+
+                        // Si quiere WhatsApp y proporcionó un número de teléfono, incluir esos parámetros
+                        if (wantsWhatsapp && formObject.phone && formObject.phone.trim() !== '') {
+                            // Formatear el número de teléfono con el prefijo de Uruguay
+                            const formattedPhone = formatUruguayPhone(formObject.phone);
+
+                            // Construir la URL con todos los parámetros necesarios
+                            const redirectUrl = `gracias.html?whatsapp=true&phone=${encodeURIComponent(formattedPhone)}&name=${encodeURIComponent(formObject.name || '')}&guests=${encodeURIComponent(formObject.guests || '0')}&favorite=${encodeURIComponent(formObject["favorite-girl"] || '')}`;
+                            window.location.href = redirectUrl;
+                        } else {
+                            // Redirección normal sin parámetros
+                            window.location.href = 'gracias.html';
+                        }
+                    }, 1000); // Redirigir después de 1 segundo
+                })
+                .catch(function (error) {
+                    console.log('FAILED...', error);
+
+                    // Hide loading indicator
+                    document.getElementById('loading-indicator').style.display = 'none';
+
+                    // Show error message with details
+                    document.getElementById('error-message').textContent =
+                        'Error al enviar el formulario: ' + (error.text || 'Verifica tus datos');
+                    document.getElementById('error-message').style.display = 'block';
+
+                    // Re-enable the button
+                    submitButton.disabled = false;
+
+                    // Hide error message after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('error-message').style.display = 'none';
+                    }, 5000);
+                });
         });
-});
-         // Create confetti effect on submission
+        // Create confetti effect on submission
         function createConfettiEffect() {
             const container = document.querySelector('.container');
 
@@ -1116,6 +1258,23 @@
                     confetti.remove();
                 }, 5000);
             }
+        }
+        function formatUruguayPhone(phoneNumber) {
+            // Eliminar todos los caracteres no numéricos
+            let cleaned = phoneNumber.replace(/\D/g, '');
+
+            // Si el número ya tiene el prefijo internacional, no lo agregamos
+            if (cleaned.startsWith('598')) {
+                return cleaned;
+            }
+
+            // Si el número comienza con 0, lo eliminamos (por ejemplo, 091... -> 91...)
+            if (cleaned.startsWith('0')) {
+                cleaned = cleaned.substring(1);
+            }
+
+            // Agregar el prefijo internacional +598
+            return '598' + cleaned;
         }
     </script>
 </body>
